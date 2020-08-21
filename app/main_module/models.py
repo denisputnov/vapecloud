@@ -1,21 +1,19 @@
-from flask import Flask, render_template, url_for, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+from app.database import db
 from datetime import datetime
-import base64
-
-application = Flask(__name__)
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///vapecloud.db'
-application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(application)
-
 
 class Guest(db.Model):
     __tablename__ = 'main_page'
     id = db.Column(db.Integer, nullable=False, autoincrement=True, primary_key=True)
+
     # TODO: Add Fields
 
     def __repr__(self):
-        return '<Guest %r>' % self.parametr
+        return '<Guest %r>' % self.id
+
+
+class ProductType(db.Model):
+    id = db.Column(db.Integer, nullable=False, autoincrement=True, primary_key=True)
+    category = db.Column(db.String(100), nullable=False)
 
 
 class Products(db.Model):
@@ -75,49 +73,3 @@ class OrderProducts(db.Model):
 
     def __repr__(self):
         return '<Users %r>' % self.order_depend
-
-
-
-
-@application.route('/')
-@application.route('/home')
-def show_main_page():
-    # TODO here we must get all items in variables, because home page = catalog
-
-    render_template('home.html')
-
-
-@application.route('/item/<item_id>')
-def show_item_page(item_id):
-    # TODO define item selector
-    item = None
-    render_template('item.html', item=item)
-
-
-@application.route('/add_new_items')
-def show_add_page():
-    # TODO define password input and checking.
-    # Redirect to admin panel if password is ok else 
-    # redirect to main page and send telegram message that 
-    # somebody try enter
-
-    render_template('add_new_items.html')
-
-
-@application.route('/cart')
-def show_cart_page():
-    # TODO i don't know how but here we must define items, which user
-    # were saved in his card and show it
-    # 
-    # must use cookies
-    #
-    # it will be comfortable if cart = [item, item, item, item, ...]
-    #
-    cart = None
-
-    render_template('cart.html', cart=cart)
-
-
-if __name__ == "__main__":
-    # application.run(host='0.0.0.0', debug=False)
-    application.run(debug=True)
