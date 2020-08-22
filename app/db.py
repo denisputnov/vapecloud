@@ -21,7 +21,7 @@ class Categories(db.Model):
     category_id = db.Column(db.Integer, nullable=True)
 
     def __repr__(self):
-        return '<Guest %r>' % self.parametr
+        return '<Categories %r>' % self.parametr
 
 
 class Liquids(db.Model):
@@ -41,7 +41,7 @@ class Liquids(db.Model):
     description = db.Column(db.Text, nullable=True)
 
     def __repr__(self):
-        return '<Guest %r>' % self.parametr
+        return '<Liquids %r>' % self.parametr
 
 
 class Accessories(db.Model):
@@ -58,7 +58,7 @@ class Accessories(db.Model):
     sale = db.Column(db.Integer, nullable=True)
 
     def __repr__(self):
-        return '<Guest %r>' % self.parametr
+        return '<Accessories %r>' % self.parametr
 
 
 class Crates:
@@ -74,7 +74,7 @@ class Crates:
     sale = db.Column(db.Integer, nullable=True)
 
     def __repr__(self):
-        return '<Guest %r>' % self.parametr
+        return '<Crates %r>' % self.parametr
 
 
 class Products(db.Model):
@@ -122,7 +122,7 @@ class Orders(db.Model):
     products_order_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 
     def __repr__(self):
-        return '<Users %r>' % self.order_id
+        return '<Orders %r>' % self.order_id
 
 
 class OrderProducts(db.Model):
@@ -133,6 +133,6 @@ class OrderProducts(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
-        return '<Users %r>' % self.order_depend
+        return '<OrderProducts %r>' % self.order_depend
 
 #db.create_all()
