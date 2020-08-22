@@ -14,6 +14,69 @@ class Guest(db.Model):
         return '<Guest %r>' % self.parametr
 
 
+class Categories(db.Model):
+    __tablename__ = 'categories'
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
+    category = db.Column(db.String(), nullable=True)
+    category_id = db.Column(db.Integer, nullable=True)
+
+    def __repr__(self):
+        return '<Guest %r>' % self.parametr
+
+
+class Liquids(db.Model):
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    brand = db.Column(db.String(100), nullable=False)
+    taste = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Integer, nullable=True)
+    volume = db.Column(db.Integer, nullable=True)
+    salt = db.Column(db.Integer, nullable=True)
+    vg_to_pg = db.Column(db.Integer, nullable=True)
+    nicotine = db.Column(db.Integer, nullable=True)
+    country = db.Column(db.String(100), nullable=False)
+    sale = db.Column(db.Integer, nullable=True)
+    connection_id = db.Column(db.Integer, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    description = db.Column(db.Text, nullable=True)
+
+    def __repr__(self):
+        return '<Guest %r>' % self.parametr
+
+
+class Accessories(db.Model):
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    brand = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Integer, nullable=True)
+    color = db.Column(db.String(100), nullable=False)
+    connection_id = db.Column(db.Integer, nullable=False)
+    type_category = db.Column(db.String(100), nullable=False)
+    id_category = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    description = db.Column(db.Text, nullable=True)
+    sale = db.Column(db.Integer, nullable=True)
+
+    def __repr__(self):
+        return '<Guest %r>' % self.parametr
+
+
+class Crates:
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    brand = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Integer, nullable=True)
+    connection_id = db.Column(db.Integer, nullable=False)
+    type_category = db.Column(db.String(100), nullable=False)
+    id_category = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    description = db.Column(db.Text, nullable=True)
+    sale = db.Column(db.Integer, nullable=True)
+
+    def __repr__(self):
+        return '<Guest %r>' % self.parametr
+
+
 class Products(db.Model):
     __tablename__ = 'products'
     id = db.Column(db.Integer, nullable=False, primary_key=True)
