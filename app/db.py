@@ -1,8 +1,8 @@
 from datetime import datetime
-from flask_sqlalchemy import SQLAlchemy
-from app.app import application
+from app import db
+#from flask_sqlalchemy import SQLAlchemy
+#from app import application
 
-db = SQLAlchemy(application)
 
 
 class Guest(db.Model):
