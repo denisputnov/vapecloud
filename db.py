@@ -4,6 +4,10 @@ from app import db
 #from app import application
 
 
+class Guest(db.Model):
+    __tablename__ = 'test'
+    id = db.Column(db.Integer, nullable=False, autoincrement=True, primary_key=True)
+
 
 class Guest(db.Model):
     __tablename__ = 'main_page'
@@ -19,12 +23,14 @@ class Categories(db.Model):
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     category = db.Column(db.String(), nullable=True)
     category_id = db.Column(db.Integer, nullable=True)
+    decsr = db.Column(db.Text, nullable=True)
 
     def __repr__(self):
         return '<Categories %r>' % self.parametr
 
 
 class Liquids(db.Model):
+    __tablename__ = 'liquids'
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     brand = db.Column(db.String(100), nullable=False)
@@ -45,6 +51,7 @@ class Liquids(db.Model):
 
 
 class Accessories(db.Model):
+    __tablename__ = 'accessories'
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     brand = db.Column(db.String(100), nullable=False)
@@ -62,6 +69,7 @@ class Accessories(db.Model):
 
 
 class Crates:
+    __tablename__ = 'crates'
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     brand = db.Column(db.String(100), nullable=False)
