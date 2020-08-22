@@ -1,11 +1,7 @@
-from flask import Flask, render_template, url_for, request, redirect
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import base64
+from flask_sqlalchemy import SQLAlchemy
+from app.app import application
 
-application = Flask(__name__)
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///vapecloud.db'
-application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(application)
 
 
@@ -76,48 +72,4 @@ class OrderProducts(db.Model):
     def __repr__(self):
         return '<Users %r>' % self.order_depend
 
-
-
-
-@application.route('/')
-@application.route('/home')
-def show_main_page():
-    # TODO here we must get all items in variables, because home page = catalog
-
-    render_template('home.html')
-
-
-@application.route('/item/<item_id>')
-def show_item_page(item_id):
-    # TODO define item selector
-    item = None
-    render_template('item.html', item=item)
-
-
-@application.route('/add_new_items')
-def show_add_page():
-    # TODO define password input and checking.
-    # Redirect to admin panel if password is ok else 
-    # redirect to main page and send telegram message that 
-    # somebody try enter
-
-    render_template('add_new_items.html')
-
-
-@application.route('/cart')
-def show_cart_page():
-    # TODO i don't know how but here we must define items, which user
-    # were saved in his card and show it
-    # 
-    # must use cookies
-    #
-    # it will be comfortable if cart = [item, item, item, item, ...]
-    #
-    cart = None
-
-    render_template('cart.html', cart=cart)
-
-
-if __name__ == "__main__":
-    # application.run(host='0.0.0.0', debug=False)
-    application.run(debug=True)
+#db.create_all()
