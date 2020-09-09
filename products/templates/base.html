@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div>
+        <nav id='navbar' class="nav_bar d-flex flex-column flex-md-row">
+            <img id="logo" src="{% static 'images/logo.svg' %}" alt="" class="logo">
+            <a id="vapecloud" href="#" class="vapecloud">vapecloud</a>
+            <form id="searchform" action="" method="post" class="search_form">
+                <input id="search" name="search_request" class="search" type="search" placeholder="Найти...">
+                <input id="submit" type="submit" class="submit" value="">
+            </form>
+            <a id="cart" class="cart"><img src="{% static 'images/cart.svg' %}" alt=""></a>
+            <a id="delivery" href="/delivery" class="delivery">Доставка</a>
+        </nav>
+    </div>
+    <div id="rounder" class="nav_bar_rounder"></div>
+    <div id="contentBlock" class="container content">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+<!-- SCRIPTS -->
+<script src="{% static 'scripts/nav_mobile.js' %}"></script>
+</html>

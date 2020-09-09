@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+VapeCloud
+{% endblock %}
+
+{% block body %}
+<p class="last_items">Последние товары:</p>
+<div id="items_line" class="items_line">
+    <button id="btn_left" onclick="" class="left"><img src="{% static 'images/left-arrow.svg' %}" alt=""></button>
+    <button id="btn_right" onklick="" class="right"><img src="{% static 'images/right-arrow.svg' %}" alt=""></button>
+    <!-- FOR -->
+    <div id="item0" class="items_line_item">
+        <p class="label">Каков вкус снежного кактуса?! 🌵Попробуй и узнаешь 😉</p>
+        <a class="item_link" href="https://vk.com"></a>
+        <img class="shadow" src="{% static 'images/shadow.png' %}" alt="">
+        <img class="image" src="{% static 'images/vp1.jpg' %}" alt="">
+    </div>
+    <div id="item1" class="items_line_item">
+        <p class="label">ELMERCK😊🤐🙄Настоящий мужской вкус крепких табаков 👊🚬</p>
+        <a class="item_link" href="https://vk.com"></a>
+        <img class="shadow" src="{% static 'images/shadow.png' %}" alt="">
+        <img class="image" src="{% static 'images/vp2.jpg' %}" alt="">
+    </div>
+    <!-- ENDFOR -->
+</div>
+<div class="products">
+    <!-- FOR -->
+    <div class="product">
+        <a href="https://vk.com" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">149<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Название</p> {% static 'scripts/items_line_mover.js' %}
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="{% static 'images/vp1.jpg' %}" alt="" class="product_image gradient">
+    </div>
+    <!-- ENDFOR -->
+</div>
+<script src="{% static 'scripts/items_line_mover.js' %}"></script>
+{% endblock %}
