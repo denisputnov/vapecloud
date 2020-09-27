@@ -14,21 +14,30 @@ class Category(models.Model):
         return self.name
 
 
+SALT_CHOICES = {
+    ('YES', "Да"),
+    ('NO', "Нет"),
+}
+
+
 class Product(models.Model):
     __name__ = "Товары"
 
     class Meta:
         abstract = True
 
+    objects = models.Manager()
+
     id = models.PositiveIntegerField(auto_created=True, primary_key=True)
     title = models.CharField(max_length=255, verbose_name="Наименование")
     category = models.ForeignKey(Category, verbose_name="Категория", on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(verbose_name="Изображение")
+    image = models.ImageField(upload_to='images', verbose_name="Изображение")
+    #image2 = models.ImageField(upload_to='images', verbose_name="Изображение")
     brand = models.CharField(max_length=255, default='другие', verbose_name="Бренд")
     description = models.TextField(verbose_name="Описание", null=True)
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Цена")
-    date = models.DateField(default=timezone.now(), verbose_name="Дата добавления")
+    date = models.DateField(default=timezone.now, verbose_name="Дата добавления")
     sale = models.DecimalField(null=True, max_digits=10, decimal_places=2, verbose_name="Скидка")
 
     """connection_id = models.DecimalField()"""
@@ -40,11 +49,13 @@ class Product(models.Model):
 class Liquid(Product):
     taste = models.CharField(max_length=255, default="другие", verbose_name="Вкус")
     volume = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="Объем")
-    salt = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="SALT")
-    vg_to_pg = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="ВГ на ПГ")
+    salt = models.CharField(max_length=255, choices=SALT_CHOICES, verbose_name="SALT")
+    vg_to_pg = models.CharField(max_length=255, null=True, verbose_name="ВГ на ПГ")
     nicotine = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="Содержание никотина")
     country = models.CharField(max_length=255, default="другие", verbose_name="Страна производитель")
 
+    def __str__(self):
+        return self.title
 
 ACCESSORIES_CHOICES = {
     ('IS', "Испарители"),

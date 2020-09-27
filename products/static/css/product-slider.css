@@ -1,0 +1,44 @@
+.product-slider-container {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+}
+.card {
+    height: 500px;
+}
+
+.swiper-image {
+	object-fit: cover;
+    height: 100%;
+	filter: brightness(0.9);
+}
+
+.swiper-pagination-bullet, 
+.swiper-pagination-bullet-active {
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background: white;
+}
+
+@media(max-width: 992px) {
+    .card {
+        height: auto;
+    }
+}
+
+@media(max-width: 768px) {
+    .product-slider-container {
+        height: 400px;
+    }
+}
+
+@media(max-width: 450px) {
+    .product-slider-container {
+        height: 350px;
+    }
+}

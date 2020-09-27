@@ -5,7 +5,6 @@ let logo = document.getElementById('logo');
 let vapecloud = document.getElementById('vapecloud');
 let searchform = document.getElementById('searchform');
 let cart = document.getElementById('cart');
-let delivery = document.getElementById('delivery');
 let rounder = document.getElementById('rounder'); 
 let search = document.getElementById('search');
 let submit = document.getElementById('submit');
@@ -30,8 +29,6 @@ async function controllNavbarView() {
             submit.classList.remove('submit');
             cart.classList.add('cart_mobile');
             cart.classList.remove('cart');
-            delivery.classList.add('delivery_mobile');
-            delivery.classList.remove('delivery');
             rounder.classList.add('nav_bar_rounder_mobile');
             rounder.classList.remove('nav_bar_rounder');
         } else {
@@ -49,8 +46,6 @@ async function controllNavbarView() {
             submit.classList.add('submit');
             cart.classList.remove('cart_mobile');
             cart.classList.add('cart');
-            delivery.classList.remove('delivery_mobile');
-            delivery.classList.add('delivery');
             rounder.classList.remove('nav_bar_rounder_mobile');
             rounder.classList.add('nav_bar_rounder');
         }

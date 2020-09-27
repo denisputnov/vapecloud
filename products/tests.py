@@ -1,3 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
+from products.models import Liquid
+
+if __name__ == '__main__':
+    print(Liquid.objects.get(id=1))

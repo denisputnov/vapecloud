@@ -88,21 +88,14 @@ nav .search_form .submit {
     width: 40px;
     height: 100%;
     background: url(../images/find.svg) no-repeat 50% 50%;
+    border: none;
 }
 
 nav .cart {
     width: auto;
     margin-top: 6px;
-    margin-right: 20px;
-    margin-left: 30px;
-}
-
-nav .delivery {
     margin-right: 2vw;
-    margin-top: 9px;
-    right: 0;
-    font-size: 20px;
-    color: white
+    margin-left: 30px;
 }
 
 .nav_bar_rounder {
@@ -218,82 +211,6 @@ nav .delivery_mobile {
     font-size: 30px;
 }
 
-.items_line {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background: red;
-    margin-bottom: 30px;
-
-    overflow: hidden;
-
-    transition: all;
-    transition-property: all;
-    transition-duration: 0s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-    display: flex;
-    will-change: transform;
-
-    object-fit: cover;
-
-    max-width: none;
-}
-
-.items_line .items_line_item {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-    min-width: 1110px;
-    max-width: 1110px;
-}
-
-.items_line .left {
-    position: absolute;
-    background: rgba(0,0,0,0.3);
-    padding: 10px;
-    left: 0px;
-    margin-top: 170px;
-    z-index: 10;
-}
-
-.items_line .right {
-    position: absolute;
-    background: rgba(0,0,0,0.3);
-    padding: 10px;
-    right: 0px;
-    margin-top: 170px;
-    z-index: 10;
-}
-
-.items_line .items_line_item .label {
-    position: absolute;
-    bottom: 0;
-    font-size: 3vh;
-    max-width: 700px;
-    margin-left: 43px;
-    margin-right: 43px;
-    margin-bottom: 16px;
-    color: white;
-    z-index: 5;
-}
-
-.items_line .items_line_item .item_link {
-    z-index: 7;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.items_line .items_line_item .image {
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-    /* object-position: center; */
-}
-
 .products {
     display: flex;
     width: 100%;
@@ -301,7 +218,7 @@ nav .delivery_mobile {
     justify-content: space-between;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-bottom: 100px;
+    margin: 30px 0 100px 0;
 }
 
 .products .product {
@@ -390,17 +307,72 @@ nav .delivery_mobile {
 	background-image: linear-gradient( 0deg, rgba(0,0,0,0.6), rgba(0,0,0,0));
 	opacity: 0.8;
 }
-
+.sort-wrapper {
+    margin: 20px 0 0 0;
+}
+.menu li{
+    list-style: none;
+    position: relative;
+}
+.menu-list {
+    display: flex;
+    justify-content: space-between;
+}
+.menu-list>li {
+    margin: 0;
+    padding: 0.3em 0 0 0;
+    width: 20%;
+}
+.menu-list>li:hover .sub-menu-list {
+    margin-bottom: 0;
+    opacity: 1;
+}
+.menu-link {
+    position: relative;
+    color: #000;
+    z-index: 5;
+    transition: all 300ms ease-in-out 150ms;
+}
+.sub-menu-list {
+    margin-top: 0.5rem;
+    transition: margin-bottom 600ms ease-in-out, opacity 200ms ease-out 300ms;
+    margin-bottom: -100%;
+    opacity: 0;
+    display: block;
+    padding: 0;
+}
+.sub-menu-link {
+    color: #000
+}
+.menu-list>li .color {
+    position: absolute;
+    top: 0;
+    margin: 0 1%;
+    padding: 0;
+    width: 98%;
+    background: #DD5182;
+    height: 3px;
+    transition: all 500ms ease-out 150ms;
+    z-index: 0;
+}
+.menu-list>li:hover .color {
+    height: 2em;
+}
+.menu-list>li:hover .menu-link {
+    color: white;
+}
+li>a {
+    display: block;
+    margin-left: 5px;
+}
+.disable-onclick-event {
+    pointer-events: none;
+}
 @media(max-width: 1200px) {
     .products .product {
         max-width: 450px;
         max-height: 450px;
         min-height: 450px;
-    }
-
-    .items_line .items_line_item {
-        max-width: 930px;
-        min-width: 930px;
     }
 }
 
@@ -410,11 +382,17 @@ nav .delivery_mobile {
         max-height: 325px;
         min-height: 325px;
     }
-
-    .items_line .items_line_item {
-        max-width: 690px;
-        min-width: 690px;
+    .menu-list {
+        flex-direction: column;
     }
+    .menu-list>li {
+        margin-bottom: 1em;
+        width: 100%;
+        min-height: 2em;
+    }
+    li>a {
+        margin: 0 15px;
+    } 
 }
 
 @media(max-width: 767px) {
@@ -423,20 +401,5 @@ nav .delivery_mobile {
         width: 100%;
         min-height: 300px;
         max-height: 500px;
-    }
-
-    .items_line .items_line_item {
-        width: 100%;
-        min-width: 290px;
-        max-width: 767px;
-    }
-
-    .items_line {
-        width: 100%;
-    }
-
-    .items_line .items_line_item .label{
-        font-size: 24px;
-        max-width: 200px;
     }
 }
