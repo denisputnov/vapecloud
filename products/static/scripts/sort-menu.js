@@ -2,45 +2,45 @@ let menu = `<div class="sort-wrapper">
 <div class="menu">
     <div class="menu-list">
         <li>
-            <a href="" class="menu-link">Жидкости</a>
+            <a href="/zhidkosti" class="menu-link">Жидкости</a>
             <div class="color"></div>
         </li>
         <li>
-            <a href="" class="menu-link">Комплектующие</a>
+            <a href="/accessories" class="menu-link">Комплектующие</a>
             <div class="color"></div>
             <ul class="sub-menu-list">
                 <li>
-                    <a href="" class="sub-menu-link">Испарители</a>
+                    <a href="/accessories/isparitel" class="sub-menu-link">Испарители</a>
                 </li>
                 <li>
-                    <a href="" class="sub-menu-link">Картриджи</a>
+                    <a href="/accessories/kartridzh" class="sub-menu-link">Картриджи</a>
                 </li>
                 <li>
-                    <a href="" class="sub-menu-link">Мундштуки</a>
+                    <a href="/accessories/mundshtuki" class="sub-menu-link">Мундштуки</a>
                 </li>
                 <li>
-                    <a href="" class="sub-menu-link">Спирали</a>
+                    <a href="/accessories/vata" class="sub-menu-link">Спирали</a>
                 </li>
                 <li>
-                    <a href="" class="sub-menu-link">Вата</a>
+                    <a href="/accessories/vata" class="sub-menu-link">Вата</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="" class="menu-link">Cloud</a>
+            <a href="/item/cloud" class="menu-link">Cloud</a>
             <div class="color"></div>
             <ul class="sub-menu-list">
                 <li>
-                    <a href="" class="sub-menu-link">Жидкости</a>
+                    <a href="/item/cloud/zhidkosti" class="sub-menu-link">Жидкости</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="" class="menu-link">Скидки</a>
+            <a href="/sales" class="menu-link">Скидки</a>
             <div class="color"></div>
         </li>
         <li>
-            <a href="" class="menu-link">Прочее</a>
+            <a href="/other" class="menu-link">Прочее</a>
             <div class="color"></div>
         </li>
     </div>

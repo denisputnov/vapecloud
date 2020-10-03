@@ -1,6 +1,8 @@
 from django import forms
+from .models import Order
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(required=True)
-    password = forms.CharField(required=True, min_length=5)
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['first_name', 'last_name', 'father_name', 'phone', 'address', 'comment']

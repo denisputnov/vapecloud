@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% csrf_token %}
+
 {% block localimport %}
 <link rel="stylesheet" href="{% static 'css/cart.css' %}">
 {% endblock %}
@@ -15,23 +17,25 @@
             <span class="modal-header-title">Оформить заказ:</span>
             <span class="modal-close">&times;</span>
         </div>
-        <div class="modal-body">
-            <div class="input-fields-wrapper">
-                <p class="personal-info-titile">О вас:</p>
-                <div class="personal-info-wrapper">
-                    <input type="text" class="name" placeholder="Имя">
-                    <input type="text" class="surname" placeholder="Фамилия">
-                    <input type="text" class="lastname" placeholder="Отчество">
-                    <input type="tel" class="tel" placeholder="Телефон">
+        <form>
+            <div class="modal-body">
+                <div class="input-fields-wrapper">
+                    <p class="personal-info-titile">О вас:</p>
+                    <div class="personal-info-wrapper">
+                        <input type="text" class="name" placeholder="Имя">
+                        <input type="text" class="surname" placeholder="Фамилия">
+                        <input type="text" class="lastname" placeholder="Отчество">
+                        <input type="tel" class="tel" placeholder="Телефон">
+                    </div>
+                    <p class="adress-title">Адрес доставки:</p>
+                    <input type="text" class="adress" placeholder="Полный адрес">
+                    <p class="adress-example">Пример: 119334, Россия, Москва, Ленинский проспект, дом 37, кв. 24</p>
+                    <p class="commentary-title">Комментарий:</p>
+                    <textarea name="commentary" class="commentary" placeholder="Ваш комментарий к заказу. Можно оставить ссылку на соцсети для связи."></textarea>
                 </div>
-                <p class="adress-title">Адрес доставки:</p>
-                <input type="text" class="adress" placeholder="Полный адрес">
-                <p class="adress-example">Пример: 119334, Россия, Москва, Ленинский проспект, дом 37, кв. 24</p>
-                <p class="commentary-title">Комментарий:</p>
-                <textarea name="commentary" class="commentary" placeholder="Ваш комментарий к заказу. Можно оставить ссылку на соцсети для связи."></textarea>
+                <div class="modal-cart-stat"></div>
             </div>
-            <div class="modal-cart-stat"></div>
-        </div>
+        </form>
         <div class="modal-footer">
             <form action="." method="post" class="order-form">
                 <input type="submit" class="confirm-order" value="Заказать"></form>

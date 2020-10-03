@@ -9,12 +9,13 @@ from products.models import *
 class BaseView(View):
 
     def get(self, request):
-        liquids = list(Liquid.objects.all())
-        accessories = list(Crate.objects.all())
+        liquids = list(Liquid.objects.all().filter(new=True))
+        accessories = list(Accessory.objects.all().filter(new=True))
         products = liquids + accessories
         # for field in products:
         #     print(field.title, int(field.price), field.image)
-        return render(request, 'home.html', {'products_list': products})
+        slider = list(Slider.objects.all())
+        return render(request, 'home.html', {'products_list': products, 'slider_list': slider})
 
 
 class ItemTemplate(generic.DetailView):
@@ -29,9 +30,9 @@ class CartTemplate(BaseView):
         return render(request, 'cart.html')
 
 
-def item_detail(request, field_category, field_id):
-    if field_category == 'Жидкости':
-        item = get_object_or_404(Liquid, id=field_id)
+def item_detail(request, field_category, field_slug):
+    if field_category == 'zhidkosti':
+        item = get_object_or_404(Liquid, slug=field_slug)
     else:
-        item = get_object_or_404(Crate, id=field_id)
+        item = get_object_or_404(Accessory, slug=field_slug)
     return render(request, 'item.html', {'item': item})

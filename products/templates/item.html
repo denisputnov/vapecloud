@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% csrf_token %}
 
 {% block localimport %}
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -38,7 +39,7 @@ VapeCloud
         {% if item.category == 'Жидкости'%}
 <!--      для жидкостей-->
         {% else %}
-<!--       для остальных категорий  они находятся в бд Crates-->
+<!--       для остальных категорий  они находятся в бд Crates-->    
         {% endif %}
     </div>
 </div>
