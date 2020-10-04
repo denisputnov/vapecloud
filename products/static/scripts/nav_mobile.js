@@ -1,6 +1,5 @@
 let navbar = document.getElementById('navbar');
 let contentBlock = document.getElementById('contentBlock');
-
 let logo = document.getElementById('logo');
 let vapecloud = document.getElementById('vapecloud');
 let searchform = document.getElementById('searchform');

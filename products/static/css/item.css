@@ -20,12 +20,74 @@
 
 .add-to-card {
     padding: 15px 40px;
-    color: whitesmoke;
+    color: white;
     background: #DD5182;
     border-radius: 30px;
 }
-
+.cart-counter {
+    display: flex;
+    max-height: 54px;
+    margin-bottom: 20px;
+}
+.cart-counter .counter-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 20px 0 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+}
+.cart-counter .counter-wrapper > button {
+    background: #FFF;
+    margin: 0;
+    padding: 0;
+    min-height: 40px;
+    min-width: 40px;
+}
+.cart-counter .counter-wrapper > button > p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    text-align: center;
+    z-index: 5;
+}
+.cart-counter .increment {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.cart-counter .decrement {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.cart-counter .counter {
+    min-width: 40px;
+    min-height: 40px;
+    background: #FFF;
+    z-index: 2;
+}
+.counter-value {
+    margin: 0;
+    text-align: center;
+    padding: 8px 10px;
+}
+.help {
+    background: #fafafa;
+    padding: 10px 25px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+}
 @media(max-width: 992px) {
+    .cart-counter {
+        justify-content: space-around;
+    }
     .product-info-wrapper {
         flex-direction: column;
     }
@@ -44,11 +106,23 @@
         width: 100%;
         max-width: 200px;
         display: block;
-        margin: 0 auto 20px;
     }
 }
 @media(max-width: 576px) {
     .product-slider-container {
         min-height: 300px;
+    }
+}
+@media(max-width: 425px) {
+    .cart-counter {
+        flex-direction: column;
+        max-height: none;
+    }
+    .cart-counter .counter-wrapper {
+        margin: 0 auto 10px;
+        width: 120px;
+    }
+    .add-to-card {
+        margin: 0 auto;
     }
 }

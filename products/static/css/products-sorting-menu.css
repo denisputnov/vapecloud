@@ -1,0 +1,38 @@
+.products-sorting-menu-wrapper {
+    width: 100%;
+    padding: 40px 20px;
+    background: #fafafa;
+    border-radius: 20px;
+}
+
+.products-sorting-menu-wrapper .sorting-title {
+    margin-bottom: 0.2em;
+    font-size: 2em;
+}
+
+.products-sorting-content {
+    display: flex;
+    justify-content: left;
+}
+
+.product-sorting-button {
+    margin-right: 20px;
+    background: none;
+    padding: 0;   
+}
+
+.product-sorting-button:hover {
+    text-decoration: underline;
+}
+
+.arrow_up::after {
+    content: ' 🠑';
+}
+
+.arrow_down::after {
+    content: ' 🠓'
+}
+
+.point::after {
+    content: ' •'
+}

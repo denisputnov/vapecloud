@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block localimport %}
+<link rel="stylesheet" href="{% static 'css/products-sorting-menu.css' %}">
+{% endblock %}
+
+<!-- TODO -->
+{% block title %}
+Vapecloud - заменить
+{% endblock %}
+
+{% block body %}
+<p id="mode"></p>
+
+<div class="products-sorting-menu-wrapper">
+    <p class="sorting-title">Сортировать по:</p>
+    <div class="products-sorting-content">
+        <button class="product-sorting-button sort-by-price point" onclick="sortByPriceIncrease()">Сортировать по цене</button>
+        <button class="product-sorting-button sort-by-alphabet point" onclick="sortByAlphabetZ()">Сортировать А-я</button>
+        <!-- <button class="product-sorting-button sort-by-date">Сортировать по дате</button> -->
+    </div>
+</div>
+
+
+<!-- Это весь список продуктов, которые выдаются после поиска -->
+<div class="products">
+    <!-- FOR PRODUCTS -->
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">149<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">гйтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">159<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">жайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">1469<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">байтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">169<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Гайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">179<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Дайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">189<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Аайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">249<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Жайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">259<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Зайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <div class="product">
+        <a href="" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">269<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">Wайтл</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="" alt="" class="product_image gradient">
+    </div>
+    <!-- ENDFOR -->
+</div>
+<script src="{% static 'scripts/products-sorting.js' %}"></script>
+<script src="{% static 'scripts/products-sorting-model.js' %}"></script>
+<script src="{% static 'scripts/products-sorting-utils.js' %}"></script>
+{% endblock %}

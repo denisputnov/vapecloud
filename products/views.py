@@ -40,3 +40,10 @@ def item_detail(request, field_category, field_slug):
 class SearchResultsView(ListView):
     model = Product
     template_name = 'search.html'
+
+
+
+class TEST(generic.DetailView):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'after_search.html')

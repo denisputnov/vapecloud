@@ -4,6 +4,9 @@
     object-fit: cover;
     overflow: hidden;
     position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    margin: 0 20px 0 0;
 }
 .card {
     height: 500px;
@@ -29,12 +32,17 @@
     .card {
         height: auto;
     }
+    .product-slider-container {
+        margin: 0 auto;
+        max-width: none;
+    }
 }
 
 @media(max-width: 768px) {
     .product-slider-container {
         height: 400px;
     }
+
 }
 
 @media(max-width: 450px) {
