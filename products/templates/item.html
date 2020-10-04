@@ -32,7 +32,17 @@ VapeCloud
             <h1 class="name">{{ item.title }}</h1>
             <p class="price">{{ item.price }}руб.</p>
             <p class="description">{{ item.description }}<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi non fuga dolorum architecto laudantium sed ad, facere aperiam velit reiciendis ipsum, quis minima nihil id est ducimus qui? Illo quas vitae neque similique deserunt esse incidunt debitis molestiae? Non, odit?</p>
-            <button class="add-to-card">В корзину</button>
+            <div class="cart-counter">
+                <div class="counter-wrapper">
+                    <button class='increment'><p>+</p></button>
+                    <div class='counter'>
+                        <p class='counter-value'>1</p>
+                    </div>
+                    <button class='decrement'><p>-</p></button>
+                </div>
+                <button class="add-to-card">В корзину</button>
+            </div>
+            <button class="help">Нужна помощь?</button>
 <!--            баттон потом в инпут submit переделать-->
         </div>
 
@@ -44,5 +54,6 @@ VapeCloud
     </div>
 </div>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'scripts/item-counts.js' %}"></script>
 <script src="{% static 'scripts/product-slider.js' %}"></script>
 {% endblock %}
