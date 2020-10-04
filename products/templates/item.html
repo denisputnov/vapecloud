@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% csrf_token %}
+
+{% block localimport %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="{% static 'css/item.css' %}">
+<link rel="stylesheet" href="{% static 'css/product-slider.css' %}">
+{% endblock %}
+
+{% block title %}
+VapeCloud
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="product-info-wrapper">
+        <div class="product-slider-container">
+            <div class="swiper-wrapper">
+                <!-- FOR -->
+                <div class="swiper-slide card">
+                    <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image.url }}" alt="">
+                </div>
+                <div class="swiper-slide card">
+                    <img class="swiper-image" src="{% static 'images/vp2.jpg' %}" alt="">
+                </div>
+                <!-- ENDFOR -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="product-info">
+            <h1 class="name">{{ item.title }}</h1>
+            <p class="price">{{ item.price }}руб.</p>
+            <p class="description">{{ item.description }}<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi non fuga dolorum architecto laudantium sed ad, facere aperiam velit reiciendis ipsum, quis minima nihil id est ducimus qui? Illo quas vitae neque similique deserunt esse incidunt debitis molestiae? Non, odit?</p>
+            <button class="add-to-card">В корзину</button>
+<!--            баттон потом в инпут submit переделать-->
+        </div>
+
+        {% if item.category == 'Жидкости'%}
+<!--      для жидкостей-->
+        {% else %}
+<!--       для остальных категорий  они находятся в бд Crates-->    
+        {% endif %}
+    </div>
+</div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'scripts/product-slider.js' %}"></script>
+{% endblock %}

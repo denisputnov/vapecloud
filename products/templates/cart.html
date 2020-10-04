@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% csrf_token %}
+
+{% block localimport %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<div class="modal-wrapper" style="display: none;">
+    <div class="modal-container">
+        <div class="modal-header">
+            <span class="modal-header-title">Оформить заказ:</span>
+            <span class="modal-close">&times;</span>
+        </div>
+        <form>
+            <div class="modal-body">
+                <div class="input-fields-wrapper">
+                    <p class="personal-info-titile">О вас:</p>
+                    <div class="personal-info-wrapper">
+                        <input type="text" class="name" placeholder="Имя">
+                        <input type="text" class="surname" placeholder="Фамилия">
+                        <input type="text" class="lastname" placeholder="Отчество">
+                        <input type="tel" class="tel" placeholder="Телефон">
+                    </div>
+                    <p class="adress-title">Адрес доставки:</p>
+                    <input type="text" class="adress" placeholder="Полный адрес">
+                    <p class="adress-example">Пример: 119334, Россия, Москва, Ленинский проспект, дом 37, кв. 24</p>
+                    <p class="commentary-title">Комментарий:</p>
+                    <textarea name="commentary" class="commentary" placeholder="Ваш комментарий к заказу. Можно оставить ссылку на соцсети для связи."></textarea>
+                </div>
+                <div class="modal-cart-stat"></div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <form action="." method="post" class="order-form">
+                <input type="submit" class="confirm-order" value="Заказать"></form>
+            <button class="cancel-order">Отменить</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</div>
+<div class="container">
+    <p class="cart-title">Корзина:</p>
+    <p class="cart-sum">Всего: <span class="cart-sum-value">0</span> руб</p>
+    <!-- IF PROSUCTS ISN'T FUNDED -->
+    <div class="not-funded-wrapper" style="display: none;">
+        <p class="empty-title">Корзина пуста</p>
+    </div>
+    <!-- IF PRODUCTS FUNDED -->
+    <!-- FOR -->
+    <div class="product">
+        <a href="/item/{{field.category}}/{{field.id}}/">
+            <div class="cart-product-image-wrapper">
+                <img src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
+            </div>
+        </a>
+        <div class="cart-product-info-wrapper">
+            <h2 class="cart-product-name">Название товара</h2>
+            <p class="cart-product-category">Категория</p>
+            <p class="cart-product-price"><span class="price-number">317</span> руб</p>
+            <div class='controller-wrapper'>
+                <div class="counter-wrapper">
+                    <button class='increment'><p>+</p></button>
+                    <div class='counter'>
+                        <p class='counter-value'>1</p>
+                    </div>
+                    <button class='decrement'><p>-</p></button>
+                </div>
+            </div>
+        </div>
+        <button class="delete-item">Удалить из корзины</button>
+    </div>
+
+
+
+    <div class="product">
+        <a href="/item/{{field.category}}/{{field.id}}/">
+            <div class="cart-product-image-wrapper">
+                <img src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
+            </div>
+        </a>
+        <div class="cart-product-info-wrapper">
+            <h2 class="cart-product-name">Название товара какое-то пидорское и очень длинное</h2>
+            <p class="cart-product-category">Категория</p>
+            <p class="cart-product-price"><span class="price-number">149</span> руб</p>
+            <div class='controller-wrapper'>
+                <div class="counter-wrapper">
+                    <button class='increment'><p>+</p></button>
+                    <div class='counter'>
+                        <p class='counter-value'>1</p>
+                    </div>
+                    <button class='decrement'><p>-</p></button>
+                </div>
+            </div>
+        </div>
+        <button class="delete-item">Удалить из корзины</button>
+    </div>
+    <!-- ENDFOR -->
+    <div class="make-an-order">
+        <button class="make-an-order-button">Оформить заказ</button>
+        <div class="color"></div>
+    </div>
+<script src="{% static 'scripts/cart.js' %}"></script>
+</div>
+{% endblock %}

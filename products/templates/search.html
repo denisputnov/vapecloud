@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<body>
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Search Products</h1>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form class="form-inline" method="get">
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="search" class="sr-only">Search Form</label>
+                <input value="{{ request.GET.q }}" type="text" name="q" class="form-control" id="search" placeholder="Search Products">
+              </div>
+              <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Search Results</h3>
+            </div>
+        </div>
+        <hr>
+        {% if results %}
+        {% for product in list_prod %}
+      <a href="/item/{{product.category}}/{{product.slug}}/" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ product.title }}</h5>
+          <small>{{ product.country }}</small>
+        </div>
+        <p class="mb-1">{{ product.description }}</p>
+        <small><b>Final Price:</b> {{ product.price }}</small>
+      </a>
+      {% endfor %}
+         {% endif%}
+</body>
+</html>
