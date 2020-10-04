@@ -27,8 +27,6 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))"""
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 
-CSRF_FAILURE_VIEW = 'python' # change this shit
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -44,8 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
+    'search',
+    'django_elasticsearch_dsl',
+    'admin_honeypot',
 ]
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

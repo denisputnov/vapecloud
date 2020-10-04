@@ -14,11 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from search.views import search_products
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('products.urls'))
+    # path('admin/', admin.site.urls),
+    url(r'^admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    url(r'^secret/', admin.site.urls),
+    path('', include('products.urls')),
+    url(r'^search/', search_products, name='search'),
+    # path('search/', search_products, name='search'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
