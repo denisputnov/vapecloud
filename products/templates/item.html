@@ -14,12 +14,16 @@ VapeCloud
 
 {% block body %}
 <div class="container">
+    <div class="info-message-wrapper">
+        <p class="info-message-content">Товар успешно добавлен в корзину.</p>
+    </div>
     <div class="product-info-wrapper">
         <div class="product-slider-container">
             <div class="swiper-wrapper">
                 <!-- FOR -->
+                <!-- #TODO: У первого изображения в слайдере обязательно должен присутствовать id="product-image", а у других не должно быть. Если сделать не получится, пусть будет у всех. -->
                 <div class="swiper-slide card">
-                    <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image.url }}" alt="">
+                    <img id="product-image" class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image.url }}" alt="">
                 </div>
                 <div class="swiper-slide card">
                     <img class="swiper-image" src="{% static 'images/vp2.jpg' %}" alt="">
@@ -29,18 +33,20 @@ VapeCloud
             <div class="swiper-pagination"></div>
         </div>
         <div class="product-info">
-            <h1 class="name">{{ item.title }}</h1>
-            <p class="price">{{ item.price }}руб.</p>
+            <a id="product-href" href="ПУТЬ ТУТ" class="disabled"></a> <!-- #TODO: ТУТ НУЖНО УКАЗАТЬ ПОЛНЫЙ ПУТЬ ДО ТОВАРА, ТАКОЙ КАК https://vapecloud.ru......... Ну ты понял -->
+            <h1 id="product-name" class="name">{{ item.title }}</h1>
+            <h4 id="product-category" class="category">Категория тут</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
+            <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
             <p class="description">{{ item.description }}<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi non fuga dolorum architecto laudantium sed ad, facere aperiam velit reiciendis ipsum, quis minima nihil id est ducimus qui? Illo quas vitae neque similique deserunt esse incidunt debitis molestiae? Non, odit?</p>
             <div class="cart-counter">
                 <div class="counter-wrapper">
                     <button class='increment'><p>+</p></button>
                     <div class='counter'>
-                        <p class='counter-value'>1</p>
+                        <p id='product-quantity' class='counter-value'>1</p>
                     </div>
                     <button class='decrement'><p>-</p></button>
                 </div>
-                <button class="add-to-card">В корзину</button>
+                <button class="add-to-card" onclick="addToCart()">В корзину</button>
             </div>
             <button class="help">Нужна помощь?</button>
 <!--            баттон потом в инпут submit переделать-->
@@ -55,5 +61,6 @@ VapeCloud
 </div>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{% static 'scripts/item-counts.js' %}"></script>
+<script src="{% static 'scripts/cart.js' %}"></script>
 <script src="{% static 'scripts/product-slider.js' %}"></script>
 {% endblock %}
