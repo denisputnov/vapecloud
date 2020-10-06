@@ -11,6 +11,12 @@
     font-size: 24px;
     color: grey;
 }
+.products-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 .product {
     position: relative;
     padding: 30px;
@@ -128,6 +134,8 @@
 .make-an-order {
     position: relative;
     float: right;
+    right: 0;
+    max-width: 180px;
     padding: 5px 0;
     margin: 0 0 40px 0;
 }

@@ -369,6 +369,15 @@ li>a {
 .disable-onclick-event {
     pointer-events: none;
 }
+.disabled {
+    position: absolute;
+    opacity: 0;
+    width: .1px;
+    height: .1px;
+    text-decoration: none;
+    pointer-events: none;
+    color: transparent;
+}
 @media(max-width: 1200px) {
     .products .product {
         max-width: 450px;

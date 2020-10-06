@@ -19,6 +19,7 @@ try {
 } catch(e) {
     
 }
+
 let products = []
 let $products = document.querySelectorAll('.product').forEach(prod => {
     products.push({

@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block title %}
-
+Корзина
 {% endblock %}
 
 {% block body %}
@@ -48,63 +48,66 @@
     <p class="cart-title">Корзина:</p>
     <p class="cart-sum">Всего: <span class="cart-sum-value">0</span> руб</p>
     <!-- IF PROSUCTS ISN'T FUNDED -->
-    <div class="not-funded-wrapper" style="display: none;">
+    <div class="not-funded-wrapper">
         <p class="empty-title">Корзина пуста</p>
     </div>
     <!-- IF PRODUCTS FUNDED -->
-    <!-- FOR -->
-    <div class="product">
-        <a href="/item/{{field.category}}/{{field.id}}/">
-            <div class="cart-product-image-wrapper">
-                <img src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
-            </div>
-        </a>
-        <div class="cart-product-info-wrapper">
-            <h2 class="cart-product-name">Название товара</h2>
-            <p class="cart-product-category">Категория</p>
-            <p class="cart-product-price"><span class="price-number">317</span> руб</p>
-            <div class='controller-wrapper'>
-                <div class="counter-wrapper">
-                    <button class='increment'><p>+</p></button>
-                    <div class='counter'>
-                        <p class='counter-value'>1</p>
+    <div class='products-wrapper'>
+        <!-- FOR -->
+        <!-- <div class="product">
+            <a id="product-href" href="/item/{{field.category}}/{{field.id}}/">
+                <div class="cart-product-image-wrapper">
+                    <img id="product-image" src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
+                </div>
+            </a>
+            <div class="cart-product-info-wrapper">
+                <h2 id="product-name" class="cart-product-name">Название товара</h2>
+                <p id="product-category" class="cart-product-category">Категория</p>
+                <p class="cart-product-price"><span id="product-price" class="price-number">317</span> руб</p>
+                <div class='controller-wrapper'>
+                    <div class="counter-wrapper">
+                        <button class='increment'><p>+</p></button>
+                        <div class='counter'>
+                            <p id="product-quantity" class='counter-value'>1</p>
+                        </div>
+                        <button class='decrement'><p>-</p></button>
                     </div>
-                    <button class='decrement'><p>-</p></button>
                 </div>
             </div>
+            <button class="delete-item">Удалить из корзины</button>
         </div>
-        <button class="delete-item">Удалить из корзины</button>
-    </div>
 
 
 
-    <div class="product">
-        <a href="/item/{{field.category}}/{{field.id}}/">
-            <div class="cart-product-image-wrapper">
-                <img src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
-            </div>
-        </a>
-        <div class="cart-product-info-wrapper">
-            <h2 class="cart-product-name">Название товара какое-то пидорское и очень длинное</h2>
-            <p class="cart-product-category">Категория</p>
-            <p class="cart-product-price"><span class="price-number">149</span> руб</p>
-            <div class='controller-wrapper'>
-                <div class="counter-wrapper">
-                    <button class='increment'><p>+</p></button>
-                    <div class='counter'>
-                        <p class='counter-value'>1</p>
+        <div class="product">
+            <a href="/item/{{field.category}}/{{field.id}}/">
+                <div class="cart-product-image-wrapper">
+                    <img src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
+                </div>
+            </a>
+            <div class="cart-product-info-wrapper">
+                <h2 class="cart-product-name">Название товара какое-то пидорское и очень длинное</h2>
+                <p class="cart-product-category">Категория</p>
+                <p class="cart-product-price"><span class="price-number">149</span> руб</p>
+                <div class='controller-wrapper'>
+                    <div class="counter-wrapper">
+                        <button class='increment'><p>+</p></button>
+                        <div class='counter'>
+                            <p class='counter-value'>1</p>
+                        </div>
+                        <button class='decrement'><p>-</p></button>
                     </div>
-                    <button class='decrement'><p>-</p></button>
                 </div>
             </div>
-        </div>
-        <button class="delete-item">Удалить из корзины</button>
+            <button class="delete-item">Удалить из корзины</button>
+        </div> -->
+        <!-- ENDFOR -->
     </div>
-    <!-- ENDFOR -->
     <div class="make-an-order">
         <button class="make-an-order-button">Оформить заказ</button>
         <div class="color"></div>
     </div>
+
 <script src="{% static 'scripts/cart.js' %}"></script>
 </div>
 {% endblock %}
