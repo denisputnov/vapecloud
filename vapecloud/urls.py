@@ -27,5 +27,4 @@ urlpatterns = [
     url(r'^secret/', admin.site.urls),
     path('', include('products.urls')),
     url(r'^search/', search_products, name='search'),
-    # path('search/', search_products, name='search'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

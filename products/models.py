@@ -154,3 +154,19 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+
+# class Categor(models.Model):
+#     category_text = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.category_text
+#
+#
+# class SubCategory(models.Model):
+#     objects = models.Manager()
+#     category = models.ForeignKey(Categor, on_delete=models.CASCADE)
+#     subcategory_text = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.subcategory_text

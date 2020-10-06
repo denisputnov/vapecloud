@@ -1,9 +1,10 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.views.generic import View, ListView
+from django.views.generic import View, ListView, CreateView
 
 from products.models import *
+from search.views import search_products
 
 
 class BaseView(View):
@@ -42,8 +43,8 @@ class SearchResultsView(ListView):
     template_name = 'search.html'
 
 
-
 class TEST(generic.DetailView):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'after_search.html')
+
