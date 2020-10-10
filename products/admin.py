@@ -4,11 +4,13 @@ from .models import *
 
 admin.site.register(Category)
 admin.site.register(Accessory)
-admin.site.register(Product)  # убрать ее нахуй из админки в будущем чтобы он сюда блять не лазил даже
+admin.site.register(Product)
 admin.site.register(Liquid)
 admin.site.register(Order)
-admin.site.register(OrderItem)
 admin.site.register(Slider)
+admin.site.register(Others)
+admin.site.register(Cloud)
+# admin.site.register(OrderItem)
 # admin.site.register(Crate)
 # admin.site.register(OrderProduct)
 # admin.site.register(Order)

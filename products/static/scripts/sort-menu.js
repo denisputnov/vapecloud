@@ -31,7 +31,7 @@ let menu = `<div class="sort-wrapper">
             <div class="color"></div>
             <ul class="sub-menu-list">
                 <li>
-                    <a href="/cloud/zhidkosti" class="sub-menu-link">Жидкости</a>
+                    <a href="/cloud/zhidkosti-cloud" class="sub-menu-link">Жидкости</a>
                 </li>
             </ul>
         </li>

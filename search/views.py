@@ -11,16 +11,15 @@ def search_products(request):
 
     if query:
         results = ProductDocument.search().query(
-          "match", title=query
+          "term", title=query
         )
 
         for elem in list(results):
             temp = get_object_or_404(Product, title=elem.title)
-            print(elem)
             all_products.append(temp)
 
     context = {
         'results': results,
-        'list_prod': all_products
+        'categorized_products': all_products
     }
-    return render(request, 'search.html', context)
+    return render(request, 'after_search.html', context)
