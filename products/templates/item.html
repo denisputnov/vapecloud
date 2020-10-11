@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="{% static 'css/item.css' %}">
 <link rel="stylesheet" href="{% static 'css/product-slider.css' %}">
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -15,7 +16,7 @@ VapeCloud
 {% block body %}
 <div class="container">
     <div class="info-message-wrapper">
-        <p class="info-message-content">Товар успешно добавлен в корзину.</p>
+        <p class="info-message-content">Товар успешно добавлен в корзину</p>
     </div>
     <div class="product-info-wrapper">
         <div class="product-slider-container">
@@ -37,7 +38,30 @@ VapeCloud
             <h1 id="product-name" class="name">{{ item.title }}</h1>
             <h4 id="product-category" class="category">Категория тут</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
             <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
-            <p class="description">{{ item.description }}<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi non fuga dolorum architecto laudantium sed ad, facere aperiam velit reiciendis ipsum, quis minima nihil id est ducimus qui? Illo quas vitae neque similique deserunt esse incidunt debitis molestiae? Non, odit?</p>
+            <p class="description">{{ item.description }}</p>
+            <!-- Начало таблицы -->
+            <table>
+                <!-- Если заголовки не нужны, то thead удали просто -->
+                <thead>
+                  <tr>
+                    <td>Характеристика</td>
+                    <td>Значение</td>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!-- Фор для tbody, а не для таблицы -->
+                  <tr>
+                    <td>Параметр 1</td>
+                    <td>Значение 1</td>
+                  </tr>
+                  <!-- конец фора, если он будет -->
+                  <tr>
+                    <td>Параметр 2</td>
+                    <td>Значение 2</td>
+                  </tr>
+                </tbody>
+              </table>
+            <!-- конец таблицы -->
             <div class="cart-counter">
                 <div class="counter-wrapper">
                     <button class='increment'><p>+</p></button>
@@ -46,7 +70,7 @@ VapeCloud
                     </div>
                     <button class='decrement'><p>-</p></button>
                 </div>
-                <button class="add-to-card" onclick="addToCart()">В корзину</button>
+                <button class="add-to-cart" onclick="addToCart()">В корзину</button>
             </div>
             <button class="help">Нужна помощь?</button>
 <!--            баттон потом в инпут submit переделать-->

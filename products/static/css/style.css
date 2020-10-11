@@ -378,6 +378,31 @@ li>a {
     pointer-events: none;
     color: transparent;
 }
+.info-message-wrapper {
+    background: rgba(0,0,0,.8);
+    position: fixed;
+    margin: 0 auto;
+    top: -50px;
+    left: 50vw;
+    transform: translate(-50%);  
+    z-index: 100000;
+    border-radius: 20px;
+    opacity: 0;
+    transition: top 500ms ease-in, opacity 300ms ease-in 200ms;
+}
+
+.info-message-content {
+    margin: 0;
+    padding: 10px;
+    color: #FFF;
+}
+
+.visible-message {
+    transition: top 500ms ease-out, opacity 300ms ease-out;
+    opacity: 1;
+    top: 49vh;
+    transform: translate(-50%);
+}
 @media(max-width: 1200px) {
     .products .product {
         max-width: 450px;
@@ -411,6 +436,11 @@ li>a {
         width: 100%;
         min-height: 300px;
         max-height: 500px;
+    }
+}
+@media(max-width: 425px) {
+    nav .vapecloud_mobile {
+        font-size: 20px;
     }
 }
 @media(max-width: 320px) {

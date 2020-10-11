@@ -16,15 +16,13 @@
     <div>
         <nav id='navbar' class="nav_bar d-flex flex-column flex-md-row">
             <img id="logo" src="{% static 'images/logo.svg' %}" alt="" class="logo">
-            <a id="vapecloud" href="http://127.0.0.1:8000/" class="vapecloud">vapecloud</a>
+            <a id="vapecloud" href="http://127.0.0.1:8000/" class="vapecloud">Vapeshop Cloud</a>
             <form id="searchform" action="{% url 'search' %}" method="post" class="search_form">
                 {% csrf_token %}
                 <input value="{{ request.GET.q }}" type="text" name="q" class="search" id="search" placeholder="Найти...">
-<!--                <input id="search" name="search_request" class="search" type="search" placeholder="Найти...">-->
                 <input id="submit" type="submit" class="submit" value="">
             </form>
             <a id="cart" class="cart" href="/cart"><img src="{% static 'images/cart.svg' %}" alt=""></a>
-            <!-- <a id="delivery" href="/delivery" class="delivery">Доставка</a> -->
         </nav>
     </div>
     <div id="rounder" class="nav_bar_rounder"></div>
