@@ -1,27 +1,7 @@
-.info-message-wrapper {
-    background: rgba(0,0,0,.8);
-    position: fixed;
-    margin: 0 auto;
-    top: 49vh;
-    left: 50vw;
-    transform: translate(-50%);
-    z-index: 100000;
-    border-radius: 20px;
-    opacity: 0;
-    transition-duration: 500ms;
+.content {
+    margin-bottom: 10vh;
+    padding-bottom: 0;
 }
-
-.info-message-content {
-    margin: 0;
-    padding: 10px;
-    color: #FFF;
-}
-
-.visible-message {
-    transition-duration: 500ms;
-    opacity: 1;
-}
-
 
 .product-info-wrapper {
     display: flex;
@@ -43,15 +23,19 @@
     width: 100%;
 }
 
-.add-to-card {
+.add-to-cart {
     padding: 15px 40px;
     color: white;
     background: #DD5182;
     border-radius: 30px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    transition-duration: 160ms;
 }
-.add-to-card:active {
+.add-to-cart:active {
     background: #9F4DAF;    
-    transition-duration: 80ms;
+    transition-duration: 160ms;
 }
 .cart-counter {
     display: flex;
@@ -87,12 +71,21 @@
     z-index: 5;
 }
 .cart-counter .increment {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: 100%;
+    transition-duration: 300ms;
 }
 .cart-counter .decrement {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition-duration: 300ms;
+}
+.cart-counter .increment:active,
+.cart-counter .decrement:active {
+    transition-duration: 300ms;
+    background: whitesmoke;
 }
 .cart-counter .counter {
     min-width: 40px;
@@ -113,6 +106,11 @@
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    transition-duration: 300ms;
+}
+.help:active {
+    transition-duration: 300ms;
+    background: whitesmoke;
 }
 .category {
     color: grey;
