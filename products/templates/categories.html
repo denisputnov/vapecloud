@@ -29,7 +29,8 @@ Vapecloud - заменить
     <!-- FOR PRODUCTS -->
     {% if categorized_products %}
     {% for product in categorized_products %}
-    <div class="product" data_string="{{data_string}}">
+    {% if product.category.name == "cloud" %}
+    <div class="product" data-title="{{product.title}}" data-brand="{{product.brand}}" data-price="{{product.price}}" data-sale="{{product.sale}}" data-category="{{product.category}}" data-taste="{{product.taste}}" data-volume="{{product.volume}}" data-salt="{{product.salt}}" data-vg_to_pg="{{product.vg_to_pg}}" data-nicotine="{{product.nicotine}}" data-country="{{product.country}}">
         <a href="/item/{{product.category}}/{{product.slug}}/" class="show_item"></a>
         <div class="price_block">
             <h3 class="price">{{product.price}}<span class="rub">Р</span></h3>
@@ -38,6 +39,37 @@ Vapecloud - заменить
         <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
         <img src="{{ MEDIA_ROOT }}{{ product.image.url }}" alt="" class="product_image gradient">
     </div>
+    {% elif product.category.name == "other" %}
+    <div class="product" data-title="{{product.title}}" data-brand="{{product.brand}}" data-price="{{product.price}}" data-sale="{{product.sale}}" data-category="{{product.category}}">
+        <a href="/item/{{product.category}}/{{product.slug}}/" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">{{product.price}}<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">{{product.title}}</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="{{ MEDIA_ROOT }}{{ product.image.url }}" alt="" class="product_image gradient">
+    </div>
+    {% elif product.category.name == "zhidkosti"  %}
+    <div class="product" data-title="{{product.title}}" data-brand="{{product.brand}}" data-price="{{product.price}}" data-sale="{{product.sale}}" data-category="{{product.category}}" data-taste="{{product.taste}}" data-volume="{{product.volume}}" data-salt="{{product.salt}}" data-vg_to_pg="{{product.vg_to_pg}}" data-nicotine="{{product.nicotine}}" data-country="{{product.country}}">
+        <a href="/item/{{product.category}}/{{product.slug}}/" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">{{product.price}}<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">{{product.title}}</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="{{ MEDIA_ROOT }}{{ product.image.url }}" alt="" class="product_image gradient">
+    </div>
+    {% else %}
+    <div class="product" data-title="{{product.title}}" data-brand="{{product.brand}}" data-price="{{product.price}}" data-sale="{{product.sale}}" data-category="{{product.category}}" data-type_category="{{product.type_category}}">
+        <a href="/item/{{product.category}}/{{product.slug}}/" class="show_item"></a>
+        <div class="price_block">
+            <h3 class="price">{{product.price}}<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">{{product.title}}</p>
+        <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
+        <img src="{{ MEDIA_ROOT }}{{ product.image.url }}" alt="" class="product_image gradient">
+    </div>
+    {% endif %}
     {% endfor %}
     {% else %}
         <h3>Товаров не найдено</h3>

@@ -44,81 +44,82 @@ class SearchResultsView(ListView):
     template_name = 'search.html'
 
 
+def generate_data_string(model):
+    result = ''
+    all = dict()
+    attribute_list = list()
+    for elem in model.objects.values():
+        result = ''
+        temp = ''
+        for field in model.objects.values()[0].keys():
+            result += f'data-{field}= {elem[field]} '
+            temp = f'data-{field}= {elem[field]} '
+            all[f'data-{field}'] = elem[field]
+        all['attribute'] = temp
+        attribute_list.append(result)
+    return attribute_list
+
+
 def get_category(request, field_category):
-
-    data_string = list()
-
     if field_category == 'zhidkosti':
         categorized_products = Liquid.objects.all()
-        for field in Liquid._meta.fields:
-            data_string.append(field.name)
+        data_list = generate_data_string(Liquid)
 
     elif field_category == 'other':
         categorized_products = Others.objects.all()
-        for field in Others._meta.fields:
-            data_string.append(field.name)
+        data_list = generate_data_string(Others)
 
     elif field_category == 'zhidkosti-cloud':
         categorized_products = Cloud.objects.all()
-        for field in Cloud._meta.fields:
-            data_string.append(field.name)
+        data_list = generate_data_string(Cloud)
 
     else:
         categorized_products = list(Accessory.objects.filter(type_category=field_category))
-        for field in Accessory._meta.fields:
-            data_string.append(field.name)
+        data_list = generate_data_string(Accessory)
 
-    return render(request, 'categories.html', {'categorized_products': categorized_products, 'data_string': data_string})
+    return render(request, 'categories.html', {'categorized_products': categorized_products, 'data_string': data_list})
 
 
 class SalesTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         saled_products = Product.objects.exclude(sale=0)
-        data_string = list()
-        for field in Product._meta.fields:
-            data_string.append(field.name)
-        return render(request, 'categories.html', {'categorized_products': saled_products, 'data_string': data_string})
+        data_list = generate_data_string(Product)
+        return render(request, 'categories.html', {'categorized_products': saled_products, 'data_string': data_list})
 
 
 class LiquidTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
-        liguid_products = Liquid.objects.all()
-        data_string = list()
-        for field in Liquid._meta.fields:
-            data_string.append(field.name)
-        return render(request, 'categories.html', {'categorized_products': liguid_products, 'data_string': data_string})
+        liquid_products = Liquid.objects.all()
+        data_list = generate_data_string(Liquid)
+        return render(request, 'categories.html', {'categorized_products': liquid_products, 'data_string': data_list})
 
 
 class AccessoryTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         accessory_products = Accessory.objects.all()
-        data_string = list()
-        for field in Accessory._meta.fields:
-            data_string.append(field.name)
-        return render(request, 'categories.html', {'categorized_products': accessory_products, 'data_string': data_string})
+        data_list = generate_data_string(Accessory)
+        return render(request, 'categories.html',
+                      {'categorized_products': accessory_products, 'data_string': data_list})
 
 
 class OthersTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
-        accessory_products = Others.objects.all()
-        data_string = list()
-        for field in Others._meta.fields:
-            data_string.append(field.name)
-        return render(request, 'categories.html', {'categorized_products': accessory_products, 'data_string': data_string})
+        other_products = Others.objects.all()
+        data_list = generate_data_string(Others)
+        return render(request, 'categories.html', {'categorized_products': other_products, 'data_string': data_list})
 
 
 class CloudTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         cloud_products = Cloud.objects.all()
-        data_string = list()
-        for field in Cloud._meta.fields:
-            data_string.append(field.name)
-        return render(request, 'categories.html', {'categorized_products': cloud_products, 'data_string': data_string})
-
-
-
+        data_list = generate_data_string(Cloud)
+        range_list = list()
+        for i in range(len(cloud_products)):
+            range_list.append(i)
+        print(range_list)
+        return render(request, 'categories.html', {'categorized_products': cloud_products, 'data_string': data_list})
