@@ -29,7 +29,7 @@ Vapecloud - заменить
     <!-- FOR PRODUCTS -->
     {% if categorized_products %}
     {% for product in categorized_products %}
-    <div class="product">
+    <div class="product" data_string="{{data_string}}">
         <a href="/item/{{product.category}}/{{product.slug}}/" class="show_item"></a>
         <div class="price_block">
             <h3 class="price">{{product.price}}<span class="rub">Р</span></h3>

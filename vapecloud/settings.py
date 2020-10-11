@@ -54,8 +54,8 @@ ELASTICSEARCH_DSL = {
     },
 }
 
-ELASTICSEARCH_DSL_AUTOSYNC = True
-ELASTICSEARCH_DSL_AUTO_REFRESH = True
+# ELASTICSEARCH_DSL_AUTOSYNC = True
+# ELASTICSEARCH_DSL_AUTO_REFRESH = True
 ELASTICSEARCH_DSL_SIGNAL_PROCESSOR = 'django_elasticsearch_dsl.signals.RealTimeSignalProcessor'
 
 MIDDLEWARE = [
@@ -140,3 +140,4 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+

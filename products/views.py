@@ -45,52 +45,80 @@ class SearchResultsView(ListView):
 
 
 def get_category(request, field_category):
+
+    data_string = list()
+
     if field_category == 'zhidkosti':
         categorized_products = Liquid.objects.all()
+        for field in Liquid._meta.fields:
+            data_string.append(field.name)
+
     elif field_category == 'other':
         categorized_products = Others.objects.all()
+        for field in Others._meta.fields:
+            data_string.append(field.name)
+
     elif field_category == 'zhidkosti-cloud':
         categorized_products = Cloud.objects.all()
+        for field in Cloud._meta.fields:
+            data_string.append(field.name)
+
     else:
         categorized_products = list(Accessory.objects.filter(type_category=field_category))
-    return render(request, 'categories.html', {'categorized_products': categorized_products})
+        for field in Accessory._meta.fields:
+            data_string.append(field.name)
+
+    return render(request, 'categories.html', {'categorized_products': categorized_products, 'data_string': data_string})
 
 
 class SalesTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         saled_products = Product.objects.exclude(sale=0)
-        return render(request, 'categories.html', {'categorized_products': saled_products})
+        data_string = list()
+        for field in Product._meta.fields:
+            data_string.append(field.name)
+        return render(request, 'categories.html', {'categorized_products': saled_products, 'data_string': data_string})
 
 
 class LiquidTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         liguid_products = Liquid.objects.all()
-
-        return render(request, 'categories.html', {'categorized_products': liguid_products})
+        data_string = list()
+        for field in Liquid._meta.fields:
+            data_string.append(field.name)
+        return render(request, 'categories.html', {'categorized_products': liguid_products, 'data_string': data_string})
 
 
 class AccessoryTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         accessory_products = Accessory.objects.all()
-        return render(request, 'categories.html', {'categorized_products': accessory_products})
+        data_string = list()
+        for field in Accessory._meta.fields:
+            data_string.append(field.name)
+        return render(request, 'categories.html', {'categorized_products': accessory_products, 'data_string': data_string})
 
 
 class OthersTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
         accessory_products = Others.objects.all()
-        return render(request, 'categories.html', {'categorized_products': accessory_products})
+        data_string = list()
+        for field in Others._meta.fields:
+            data_string.append(field.name)
+        return render(request, 'categories.html', {'categorized_products': accessory_products, 'data_string': data_string})
 
 
 class CloudTemplate(BaseView):
 
     def get(self, request, *args, **kwargs):
-        accessory_products = Cloud.objects.all()
-        print(list(accessory_products))
-        return render(request, 'categories.html', {'categorized_products': accessory_products})
+        cloud_products = Cloud.objects.all()
+        data_string = list()
+        for field in Cloud._meta.fields:
+            data_string.append(field.name)
+        return render(request, 'categories.html', {'categorized_products': cloud_products, 'data_string': data_string})
 
 
 
