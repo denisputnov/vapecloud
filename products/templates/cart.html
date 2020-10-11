@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% csrf_token %}
 
 {% block localimport %}
 <link rel="stylesheet" href="{% static 'css/cart.css' %}">
@@ -21,6 +20,7 @@
             <span class="modal-close">&times;</span>
         </div>
         <form>
+            {% csrf_token %}
             <div class="modal-body">
                 <div class="input-fields-wrapper">
                     <p class="personal-info-titile">О вас:</p>

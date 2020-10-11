@@ -26,11 +26,11 @@ SALT_CHOICES = {
 }
 
 ACCESSORIES_CHOICES = {
-    ('IS', "Испарители"),
-    ('CRT', "Картриджи"),
-    ('MND', "Мундштуки"),
-    ("NMK", "Намотки"),
-    ("VTA", "Вата")
+    ('isparitel', "Испарители"),
+    ('kartridzh', "Картриджи"),
+    ('mundshtuki', "Мундштуки"),
+    ("namotki", "Намотки"),
+    ("vata", "Вата")
 }
 
 
@@ -84,6 +84,13 @@ class Accessory(Product):
         return self.title
 
 
+class Others(Product):
+
+    class Meta:
+        verbose_name = 'Другое'
+        verbose_name_plural = 'Другое'
+
+
 class Crate(Product):
 
     class Meta:
@@ -95,6 +102,13 @@ TABLE_CHOICES = {
     ("Accessory", "Accessory"),
     ("Liquid", "Liquid"),
     }
+
+
+class Cloud(Liquid):
+
+    class Meta:
+        verbose_name = 'Cloud'
+        verbose_name_plural = 'Cloud'
 
 
 class Slider(models.Model):
@@ -154,3 +168,19 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+
+# class Categor(models.Model):
+#     category_text = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.category_text
+#
+#
+# class SubCategory(models.Model):
+#     objects = models.Manager()
+#     category = models.ForeignKey(Categor, on_delete=models.CASCADE)
+#     subcategory_text = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.subcategory_text

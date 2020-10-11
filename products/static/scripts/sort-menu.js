@@ -19,7 +19,7 @@ let menu = `<div class="sort-wrapper">
                     <a href="/accessories/mundshtuki" class="sub-menu-link">Мундштуки</a>
                 </li>
                 <li>
-                    <a href="/accessories/vata" class="sub-menu-link">Спирали</a>
+                    <a href="/accessories/namotki" class="sub-menu-link">Спирали</a>
                 </li>
                 <li>
                     <a href="/accessories/vata" class="sub-menu-link">Вата</a>
@@ -27,11 +27,11 @@ let menu = `<div class="sort-wrapper">
             </ul>
         </li>
         <li>
-            <a href="/item/cloud" class="menu-link">Cloud</a>
+            <a href="/cloud" class="menu-link">Cloud</a>
             <div class="color"></div>
             <ul class="sub-menu-list">
                 <li>
-                    <a href="/item/cloud/zhidkosti" class="sub-menu-link">Жидкости</a>
+                    <a href="/cloud/zhidkosti-cloud" class="sub-menu-link">Жидкости</a>
                 </li>
             </ul>
         </li>
