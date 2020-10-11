@@ -35,8 +35,8 @@ VapeCloud
         </div>
         <div class="product-info">
             <a id="product-href" href="ПУТЬ ТУТ" class="disabled"></a> <!-- #TODO: ТУТ НУЖНО УКАЗАТЬ ПОЛНЫЙ ПУТЬ ДО ТОВАРА, ТАКОЙ КАК https://vapecloud.ru......... Ну ты понял -->
-            <h1 id="product-name" class="name">{{ item.title }}</h1>
-            <h4 id="product-category" class="category">Категория тут</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
+            <h1 id="product-name" class="name">{{ item.title|upper }}</h1>
+            <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
             <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
             <p class="description">{{ item.description }}</p>
             <!-- Начало таблицы -->
