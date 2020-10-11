@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block body %}
+<div class="info-message-wrapper">
+    <p class="info-message-content"></p>
+</div>
 <div class="modal-wrapper" style="display: none;">
     <div class="modal-container">
         <div class="modal-header">
@@ -35,12 +38,11 @@
                 </div>
                 <div class="modal-cart-stat"></div>
             </div>
+            <div class="modal-footer">
+                <input type="button" class="confirm-order" value="Заказать">
+                <button class="cancel-order">Отменить</button>
+            </div>
         </form>
-        <div class="modal-footer">
-            <form action="." method="post" class="order-form">
-                <input type="submit" class="confirm-order" value="Заказать"></form>
-            <button class="cancel-order">Отменить</button>
-        </div>
     </div>
     <div class="modal-background"></div>
 </div>
@@ -53,61 +55,13 @@
     </div>
     <!-- IF PRODUCTS FUNDED -->
     <div class='products-wrapper'>
-        <!-- FOR -->
-        <!-- <div class="product">
-            <a id="product-href" href="/item/{{field.category}}/{{field.id}}/">
-                <div class="cart-product-image-wrapper">
-                    <img id="product-image" src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
-                </div>
-            </a>
-            <div class="cart-product-info-wrapper">
-                <h2 id="product-name" class="cart-product-name">Название товара</h2>
-                <p id="product-category" class="cart-product-category">Категория</p>
-                <p class="cart-product-price"><span id="product-price" class="price-number">317</span> руб</p>
-                <div class='controller-wrapper'>
-                    <div class="counter-wrapper">
-                        <button class='increment'><p>+</p></button>
-                        <div class='counter'>
-                            <p id="product-quantity" class='counter-value'>1</p>
-                        </div>
-                        <button class='decrement'><p>-</p></button>
-                    </div>
-                </div>
-            </div>
-            <button class="delete-item">Удалить из корзины</button>
-        </div>
-
-
-
-        <div class="product">
-            <a href="/item/{{field.category}}/{{field.id}}/">
-                <div class="cart-product-image-wrapper">
-                    <img src="{% static 'images/vp1.jpg' %}" alt="" class="cart-product-image">
-                </div>
-            </a>
-            <div class="cart-product-info-wrapper">
-                <h2 class="cart-product-name">Название товара какое-то пидорское и очень длинное</h2>
-                <p class="cart-product-category">Категория</p>
-                <p class="cart-product-price"><span class="price-number">149</span> руб</p>
-                <div class='controller-wrapper'>
-                    <div class="counter-wrapper">
-                        <button class='increment'><p>+</p></button>
-                        <div class='counter'>
-                            <p class='counter-value'>1</p>
-                        </div>
-                        <button class='decrement'><p>-</p></button>
-                    </div>
-                </div>
-            </div>
-            <button class="delete-item">Удалить из корзины</button>
-        </div> -->
-        <!-- ENDFOR -->
     </div>
     <div class="make-an-order">
         <button class="make-an-order-button">Оформить заказ</button>
         <div class="color"></div>
     </div>
 
+<script src="{% static 'scripts/bot.js' %}"></script>
 <script src="{% static 'scripts/cart.js' %}"></script>
 </div>
 {% endblock %}

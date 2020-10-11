@@ -275,6 +275,9 @@ input:focus {
     border-radius: 20px;
     padding: 5px 15px;
 }
+.confirm-order {
+    width: 120px;
+}
 .cancel-order {
     background: none;
     color: black;

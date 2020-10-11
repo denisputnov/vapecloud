@@ -32,17 +32,19 @@ function defineCartContent() {
 }
 try {
     defineCartContent();
+    var bot = new Bot('1096828547:AAHD7G8ZMTQ3FsU_4cQj6HQG-rWVMsrzUrg');
 } catch(e) {
+    console.log(e);
     if (storage.getItem('cart') === null) storage.setItem('cart', ' ');
     let $infoMessage = document.querySelector('.info-message-wrapper');
-    document.querySelector('.add-to-card').addEventListener('click', () => {
+    document.querySelector('.add-to-cart').addEventListener('click', () => {
         $infoMessage.classList.add('visible-message');
         setTimeout(() => $infoMessage.classList.remove('visible-message'), 1500);
     });
 }
 
 function _isCartEmpty() {
-    if (_getCart() === []) return true
+    if (_getCart().length === 0) return true
     return false
 }
 
@@ -68,6 +70,7 @@ function _addProductToLocalStorage(product) {
         cart.push(product)
     } else {
         cart[isRes].quantity += product.quantity
+        cart[isRes].price = cart[isRes].quantity * cart[isRes].defPrice
     }
     _updateStorage(cart)
 }
@@ -88,7 +91,8 @@ function _updateProductQuantity(prodName, mode) {
     let cart = _getCart();
     cart.forEach(product => {
         if (product.name === prodName) {
-            mode === '+' ? product.quantity += 1 : product.quantity -= 1; 
+            mode === '+' ? product.quantity++ : product.quantity--; 
+            product.price = product.quantity * product.defPrice;
         } 
     })
     _updateStorage(cart);
@@ -176,6 +180,7 @@ function setEvents() {
             el.remove();
             cartSum.textContent = parseInt(cartSum.textContent) - defPrice * parseInt(count.textContent);    
             _deleteProductFromCart(prodName);    
+            defineCartContent();
         });
     });
 
@@ -211,13 +216,12 @@ function _clearCartStat() {
     modal.querySelector('.modal-cart-sum').remove();
 }
 
-// modal window block
-let modal = document.querySelector('.modal-wrapper');
-let makeAnOrderBtn = document.querySelector('.make-an-order-button');
-
-    // actions
-    // close modal window
 try {
+    // modal window block
+    var modal = document.querySelector('.modal-wrapper');
+    let makeAnOrderBtn = document.querySelector('.make-an-order-button');
+    let $confirmOrderBtn = document.querySelector('.confirm-order');
+    // close modal window
     modal.querySelector('.modal-close').addEventListener('click', () => {
         modal.style.display = 'none';
         _clearCartStat();
@@ -231,5 +235,53 @@ try {
         modal.style.display = 'block';
         _generateCartStat();
     })
+    // actions
+    $confirmOrderBtn.addEventListener('click', () => {
+        let $infoMessage = document.querySelector('.info-message-wrapper');
+        let name = modal.querySelector('.name').value;
+        let surname = modal.querySelector('.surname').value;
+        let lastname = modal.querySelector('.lastname').value;
+        let tel = modal.querySelector('.tel').value;
+        let adress = modal.querySelector('.adress').value;
+        let commentary = modal.querySelector('.commentary').value;
+        let required = [name, surname, lastname, tel, adress];
+        let params = [...required, commentary]
+
+        if (required.every(element => element !== '')) {
+            let message = constructMessage(params, constructCartText(), document.querySelector('.cart-sum-value').textContent)
+            bot.sendMessage({chat_id: 587125336, text: message});
+
+            document.querySelector('.info-message-content').textContent = "Заказ успешно оформлен, спасибо за покупку.";
+            $infoMessage.classList.add('visible-message');
+            setTimeout(() => $infoMessage.classList.remove('visible-message'), 3000);
+
+            document.querySelector('.modal-wrapper').style.display = 'none';
+        } else {
+            document.querySelector('.info-message-content').textContent = "Пропущены обязательные поля. Заказ отменён.";
+            $infoMessage.classList.add('visible-message');
+            setTimeout(() => $infoMessage.classList.remove('visible-message'), 1500);
+        }
+    })
+    
 } catch(e) {}
 
+function constructCartText() {
+    let cart = _getCart()
+    let text = ''
+    cart.forEach(product => {
+        text += `${product.category}: ${product.name} - ${product.quantity} шт. - ${product.price} Руб.%0A`
+    })
+    return text
+}
+
+function constructMessage(params, cart, sum) {
+    return `Новый заказ:%0A%0A
+ФИО: ${params[[0]]} ${params[1]} ${params[2]}%0A
+Телефон: ${params[3]}%0A
+Адрес: ${params[4]}%0A
+Комментарий: ${params[5] ? params[5] : 'Отсутствует'}%0A%0A
+
+Заказ:%0A
+${cart}%0A
+Итого: ${sum} Руб.`
+}

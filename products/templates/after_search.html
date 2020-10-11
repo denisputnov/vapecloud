@@ -12,19 +12,14 @@ Vapecloud - заменить
 {% endblock %}
 
 {% block body %}
-<p id="mode"></p>
-
 <div class="products-sorting-menu-wrapper">
     <p class="sorting-title">Сортировать по:</p>
     <div class="products-sorting-content">
         <button class="product-sorting-button sort-by-price point" onclick="sortByPriceIncrease()">Сортировать по цене</button>
         <button class="product-sorting-button sort-by-alphabet point" onclick="sortByAlphabetZ()">Сортировать А-я</button>
-        <!-- <button class="product-sorting-button sort-by-date">Сортировать по дате</button> -->
     </div>
 </div>
 
-
-<!-- Это весь список продуктов, которые выдаются после поиска -->
 <div class="products">
     <!-- FOR PRODUCTS -->
     {% if categorized_products %}
@@ -43,7 +38,6 @@ Vapecloud - заменить
     <h3>Товаров не найдено</h3>
     {% endif %}
 </div>
-<script src="{% static 'scripts/products-sorting.js' %}"></script>
-<script src="{% static 'scripts/products-sorting-model.js' %}"></script>
-<script src="{% static 'scripts/products-sorting-utils.js' %}"></script>
+<script src="{% static 'scripts/sorting/products-sorting-utils.js' %}"></script>
+<script src="{% static 'scripts/sorting/search.js' %}"></script>
 {% endblock %}
