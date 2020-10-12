@@ -39,17 +39,8 @@ VapeCloud
             <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
             <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
             <p class="description">{{ item.description }}</p>
-            <!-- Начало таблицы -->
             <table>
-                <!-- Если заголовки не нужны, то thead удали просто -->
-<!--                <thead>-->
-<!--                  <tr>-->
-<!--                    <td>Характеристика</td>-->
-<!--                    <td>Значение</td>-->
-<!--                  </tr>-->
-<!--                </thead>-->
                 <tbody>
-                    <!-- Фор для tbody, а не для таблицы -->
                     {% if item.category.name == "cloud" or item.category.name == "zhidkosti" %}
                     <tr>
                         <td>Вкус</td>
@@ -83,7 +74,6 @@ VapeCloud
                     {% endif %}
                 </tbody>
               </table>
-            <!-- конец таблицы -->
             <div class="cart-counter">
                 <div class="counter-wrapper">
                     <button class='increment'><p>+</p></button>
@@ -95,7 +85,6 @@ VapeCloud
                 <button class="add-to-cart" onclick="addToCart()">В корзину</button>
             </div>
             <button class="help">Нужна помощь?</button>
-<!--            баттон потом в инпут submit переделать-->
         </div>
 
         {% if item.category == 'Жидкости'%}
