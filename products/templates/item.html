@@ -39,29 +39,41 @@ VapeCloud
             <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
             <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
             <p class="description">{{ item.description }}</p>
-            <!-- Начало таблицы -->
             <table>
-                <!-- Если заголовки не нужны, то thead удали просто -->
-                <thead>
-                  <tr>
-                    <td>Характеристика</td>
-                    <td>Значение</td>
-                  </tr>
-                </thead>
                 <tbody>
-                    <!-- Фор для tbody, а не для таблицы -->
-                  <tr>
-                    <td>Параметр 1</td>
-                    <td>Значение 1</td>
-                  </tr>
-                  <!-- конец фора, если он будет -->
-                  <tr>
-                    <td>Параметр 2</td>
-                    <td>Значение 2</td>
-                  </tr>
+                    {% if item.category.name == "cloud" or item.category.name == "zhidkosti" %}
+                    <tr>
+                        <td>Вкус</td>
+                        <td>{{ item.taste }}</td>
+                    </tr>
+                    <tr>
+                        <td>Объем</td>
+                        <td>{{ item.volume }}</td>
+                    </tr>
+                    <tr>
+                        <td>Salt</td>
+                        <td>{{ item.salt|lower }}</td>
+                    </tr>
+                    <tr>
+                        <td>VG/PG</td>
+                        <td>{{ item.vg_to_pg }}</td>
+                    </tr>
+                    <tr>
+                        <td>Содержание никотина</td>
+                        <td>{{ item.nicotine }}</td>
+                    </tr>
+                    <tr>
+                        <td>Cтрана производитель</td>
+                        <td>{{ item.country }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>Бренд</td>
+                        <td>{{ item.brand|lower }}</td>
+                    </tr>
+                    {% endif %}
                 </tbody>
               </table>
-            <!-- конец таблицы -->
             <div class="cart-counter">
                 <div class="counter-wrapper">
                     <button class='increment'><p>+</p></button>
@@ -73,7 +85,6 @@ VapeCloud
                 <button class="add-to-cart" onclick="addToCart()">В корзину</button>
             </div>
             <button class="help">Нужна помощь?</button>
-<!--            баттон потом в инпут submit переделать-->
         </div>
 
         {% if item.category == 'Жидкости'%}
