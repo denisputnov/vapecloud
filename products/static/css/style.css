@@ -34,6 +34,11 @@ button:focus {
     border: 0;
 }
 
+label {
+    margin: 0;
+    padding: 0;
+} 
+
 nav {
     background: linear-gradient(270deg, rgba(104,75,216,1) 0%, rgba(235,81,119,1) 100%);
     padding-top: 20px;
@@ -212,7 +217,9 @@ nav .delivery_mobile {
 }
 
 .products {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
     width: 100%;
     height: auto;
     justify-content: space-between;
@@ -404,6 +411,9 @@ li>a {
     transform: translate(-50%);
 }
 @media(max-width: 1200px) {
+    .products {
+        display: flex;
+    }
     .products .product {
         max-width: 450px;
         max-height: 450px;
