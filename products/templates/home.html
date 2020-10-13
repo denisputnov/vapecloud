@@ -23,7 +23,7 @@ VapeCloud
                 <a href="/item/{{slider.category}}/{{slider.slug}}/">
                     <h2 class="swiper-card-title">{{slider.description}}</h2>
                     <img src="{% static 'images/shadow.png' %}" alt="" class="shadow">
-                    <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ slider.image.url }}" alt="">
+                    <img class="swiper-image swiper-image-margin" src="{{ MEDIA_ROOT }}{{ slider.image.url }}" alt="">
                 </a>
             </div>
             {% endfor %}

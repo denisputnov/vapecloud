@@ -134,7 +134,6 @@ function sortByVolume(mode) {
     }
   }
   _sort(tmp, mode);
-  console.log(tmp);
   render(tmp);
 }
 
@@ -150,7 +149,6 @@ function getCountries() {
 try {
   let $countrySelect = document.getElementById("countrySelect");
   let countries = getCountries();
-  console.log(countries);
   countries.forEach((country) => {
     $countrySelect.insertAdjacentHTML(
       `beforeend`,
@@ -189,9 +187,7 @@ function getBrands() {
 
 try {
   let $brandSelect = document.getElementById("brandSelect");
-  // $countrySelect.preventDefault()
   let brands = getBrands();
-  console.log(brands);
   brands.forEach((brand) => {
     $brandSelect.insertAdjacentHTML(
       `beforeend`,
@@ -270,7 +266,6 @@ function getTastes() {
 try {
   let $tasteSelect = document.getElementById("tasteSelect");
   let tastes = getTastes();
-  console.log(tastes);
   tastes.forEach((taste) => {
     $tasteSelect.insertAdjacentHTML(
       `beforeend`,
@@ -310,7 +305,6 @@ function getVgpgs() {
 try {
   let $vgpgSelect = document.getElementById("vgpgSelect");
   let vgpgs = getVgpgs();
-  console.log(vgpgs);
   vgpgs.forEach((vgpg) => {
     $vgpgSelect.insertAdjacentHTML(
       `beforeend`,

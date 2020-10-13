@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ru">
+
 <head>
     <!-- META -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="language" content="RU">
+    <meta name="robots" content="all">
+    <meta name="Copyright" content="© Vapeshop Cloud - vapeshopcloud.ru">
+    <meta name="description"
+        content="Интернет-магазин по продаже жидкостей для электронных сигарет, вейпов и комплектующего для них.">
+    <meta name="adress" content="улица Космонавтов, 52, Екатеринбург">
+    <meta name="keywords"
+        content="vape,вейп,вейпшоп,жижа,жидкости,екб,екатеринбург,кальян,джул,купить,испарители,вата,спираль,мундштук">
+    <meta name="theme-color" content="#B64F9F">
+    <meta name="application-name" content="Vapeshop Cloud">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Vapeshop Cloud">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block localimport %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
+
 <body>
-    <!-- NAVBAR --> 
+    <!-- NAVBAR -->
     <div>
         <nav id='navbar' class="nav_bar d-flex flex-column flex-md-row">
-            <img id="logo" src="{% static 'images/logo.svg' %}" alt="" class="logo">
-            <a id="vapecloud" href="http://127.0.0.1:8000/" class="vapecloud">Vapeshop Cloud</a>
+            <a id="vapecloud" href="http://127.0.0.1:8000/" class="vapecloud"><img id="logo"
+                    src="{% static 'images/logo.svg' %}" alt="" class="logo">Vapeshop Cloud</a>
             <form id="searchform" action="{% url 'search' %}" method="get" class="search_form">
                 {% csrf_token %}
-                <input value="{{ request.GET.q }}" type="text" name="q" class="search" id="search" placeholder="Найти...">
-<!--                <input id="search" name="search_request" class="search" type="search" placeholder="Найти...">-->
+                <input value="{{ request.GET.q }}" type="text" name="q" class="search" id="search"
+                    placeholder="Найти...">
+                <!--                <input id="search" name="search_request" class="search" type="search" placeholder="Найти...">-->
                 <button id="submit" type="submit" class="submit" value=""></button>
             </form>
             <a id="cart" class="cart" href="/cart"><img src="{% static 'images/cart.svg' %}" alt=""></a>
@@ -33,4 +58,5 @@
 </body>
 <!-- SCRIPTS -->
 <script src="{% static 'scripts/nav_mobile.js' %}"></script>
+
 </html>

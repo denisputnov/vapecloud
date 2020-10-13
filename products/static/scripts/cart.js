@@ -34,7 +34,6 @@ try {
     defineCartContent();
     var bot = new Bot('1096828547:AAHD7G8ZMTQ3FsU_4cQj6HQG-rWVMsrzUrg');
 } catch(e) {
-    console.log(e);
     if (storage.getItem('cart') === null) storage.setItem('cart', ' ');
     let $infoMessage = document.querySelector('.info-message-wrapper');
     document.querySelector('.add-to-cart').addEventListener('click', () => {
