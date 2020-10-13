@@ -3,6 +3,11 @@
     padding: 40px 20px;
     background: #fafafa;
     border-radius: 20px;
+    box-shadow: 0 5px 10px #dddddd;
+}
+
+select:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }
 
 .products-sorting-menu-wrapper .sorting-title {
@@ -16,6 +21,14 @@
     justify-content: left;
 }
 
+.products-sorting-header {
+    border-bottom: 2px solid #dddddd
+}
+
+.products-sorting-body {
+    padding-top: 10px;
+}
+
 .products-sorting-body,
 .products-sorting-header {
     display: flex;
@@ -27,7 +40,7 @@
     margin-right: 20px;
     background: none;
     padding: 0;
-    margin-bottom: 20px;   
+    margin-bottom: 10px;   
 }
 
 .product-sorting-button:hover {

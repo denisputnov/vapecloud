@@ -18,6 +18,15 @@
 	background-repeat: no-repeat;
 	margin: -35px 0 0 0;
 	padding: 0;
+	transition: .3s;
+}
+
+.swiper-button-prev:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.swiper-button-next:hover {
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .swiper-button-prev::after,
@@ -54,6 +63,9 @@
 }
 
 @media(max-width: 767px) {
+	.swiper-card-title {
+		margin: 0 20px 20px
+	}
 	.swiper-button-prev,
 	.swiper-button-next {
 		display: none;
