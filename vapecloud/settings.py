@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 ELASTICSEARCH_DSL = {
     'default': {
         'hosts': 'localhost:9200'
-    },
+    }
 }
 
 # ELASTICSEARCH_DSL_AUTOSYNC = True

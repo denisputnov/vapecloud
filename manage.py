@@ -2,9 +2,14 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import os
+
+import schedule
 
 
 def main():
+    # test = os.path.dirname(os.path.abspath(__file__))
+    # command = f"python {test}\manage.py search_index --rebuild"
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vapecloud.settings')
     try:
         from django.core.management import execute_from_command_line

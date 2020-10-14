@@ -24,7 +24,7 @@ from search.views import search_products
 urlpatterns = [
     # path('admin/', admin.site.urls),
     url(r'^admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    url(r'^secret/', admin.site.urls),
+    url(r'^vapeCloudSh0pAdmin/', admin.site.urls),
     path('', include('products.urls')),
     url(r'^search/', search_products, name='search'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

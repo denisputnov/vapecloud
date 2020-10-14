@@ -39,7 +39,7 @@ class Product(models.Model):
 
     id = models.AutoField(auto_created=True, unique=True, primary_key=True)
     new = models.BooleanField(default=False, verbose_name="Добавить в категорию новые?")
-    title = models.CharField(max_length=255, verbose_name="Наименование")
+    title = models.CharField(max_length=255, verbose_name="Наименование", unique=True)
     slug = AutoSlugField(max_length=50, unique=True, populate_from='title')
     image = models.ImageField(upload_to='images', verbose_name="Изображение")
     # image2 = models.ImageField(upload_to='images', verbose_name="Изображение")
