@@ -64,20 +64,24 @@ def get_category(request, field_category):
     if field_category == 'zhidkosti':
         categorized_products = Liquid.objects.all()
         data_list = generate_data_string(Liquid)
+        category = 'liquids'
 
     elif field_category == 'other':
         categorized_products = Others.objects.all()
         data_list = generate_data_string(Others)
+        category = 'other'
 
     elif field_category == 'zhidkosti-cloud':
         categorized_products = Cloud.objects.all()
         data_list = generate_data_string(Cloud)
+        category = 'liquids'
 
     else:
         categorized_products = list(Accessory.objects.filter(type_category=field_category))
         data_list = generate_data_string(Accessory)
+        category = 'accessory'
 
-    return render(request, 'categories.html', {'categorized_products': categorized_products, 'data_string': data_list})
+    return render(request, 'categories.html', {'categorized_products': categorized_products, 'data_string': data_list, 'category': category})
 
 
 class SalesTemplate(BaseView):
@@ -85,7 +89,11 @@ class SalesTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         saled_products = Product.objects.exclude(sale=0)
         data_list = generate_data_string(Product)
-        return render(request, 'categories.html', {'categorized_products': saled_products, 'data_string': data_list})
+
+        category = 'sales'
+
+        return render(request, 'categories.html',
+                      {'categorized_products': saled_products, 'data_string': data_list, 'category': category})
 
 
 class LiquidTemplate(BaseView):
@@ -93,7 +101,12 @@ class LiquidTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         liquid_products = Liquid.objects.all()
         data_list = generate_data_string(Liquid)
-        return render(request, 'categories.html', {'categorized_products': liquid_products, 'data_string': data_list})
+
+        if liquid_products[0].category.name == 'zhidkosti':
+            category = 'liquids'
+
+        return render(request, 'categories.html',
+                      {'categorized_products': liquid_products, 'data_string': data_list, 'category': category})
 
 
 class AccessoryTemplate(BaseView):
@@ -101,8 +114,12 @@ class AccessoryTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         accessory_products = Accessory.objects.all()
         data_list = generate_data_string(Accessory)
+
+        if accessory_products[0].category.name == 'isparitel' or 'kartridzh' or 'mundshtuki' or 'namotki' or 'vata':
+            category = 'accessory'
+
         return render(request, 'categories.html',
-                      {'categorized_products': accessory_products, 'data_string': data_list})
+                      {'categorized_products': accessory_products, 'data_string': data_list, 'category': category})
 
 
 class OthersTemplate(BaseView):
@@ -110,7 +127,9 @@ class OthersTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         other_products = Others.objects.all()
         data_list = generate_data_string(Others)
-        return render(request, 'categories.html', {'categorized_products': other_products, 'data_string': data_list})
+        category = other_products[0].category.name
+        return render(request, 'categories.html',
+                      {'categorized_products': other_products, 'data_string': data_list, 'category': category})
 
 
 class CloudTemplate(BaseView):
@@ -118,8 +137,8 @@ class CloudTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         cloud_products = Cloud.objects.all()
         data_list = generate_data_string(Cloud)
-        range_list = list()
-        for i in range(len(cloud_products)):
-            range_list.append(i)
-        print(range_list)
-        return render(request, 'categories.html', {'categorized_products': cloud_products, 'data_string': data_list})
+        print(cloud_products[0])
+        if cloud_products[0].category.name == 'cloud':
+            category = 'cloud'
+        return render(request, 'categories.html',
+                      {'categorized_products': cloud_products, 'data_string': data_list, 'category': category})
