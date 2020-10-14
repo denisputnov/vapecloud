@@ -34,9 +34,9 @@ VapeCloud
             <div class="swiper-pagination"></div>
         </div>
         <div class="product-info">
-            <a id="product-href" href="ПУТЬ ТУТ" class="disabled"></a> <!-- #TODO: ТУТ НУЖНО УКАЗАТЬ ПОЛНЫЙ ПУТЬ ДО ТОВАРА, ТАКОЙ КАК https://vapecloud.ru......... Ну ты понял -->
+            <a id="product-href" href="/item/{{item.category}}/{{item.slug}}/" class="disabled"></a>
             <h1 id="product-name" class="name">{{ item.title|upper }}</h1>
-            <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4> <!-- #TODO: ВЫВОД КАТЕГОРИИ -->
+            <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4>
             <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
             <table>
                 <tbody>
