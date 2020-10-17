@@ -263,6 +263,13 @@ nav .delivery_mobile {
   display: inline-block;
 }
 
+.rub-red {
+  line-height: 5px;
+  width: 0.4em;
+  border-bottom: 1px solid red;
+  display: inline-block;
+}
+
 .products .product .show_item {
   width: 100%;
   height: 100%;
@@ -303,6 +310,25 @@ nav .delivery_mobile {
   margin: 0;
   font-size: 30px;
 }
+
+.product .price_block .def-price {
+  margin: 0;
+  font-size: 24px;
+  opacity: .8;
+  color: red;
+  text-align: right;
+  text-decoration: line-through;
+}
+
+.item-def-price {
+  margin: 0;
+  font-size: 13px;
+  opacity: .8;
+  color: red;
+  text-align: left;
+  text-decoration: line-through;
+}
+
 
 .product .label {
   position: absolute;

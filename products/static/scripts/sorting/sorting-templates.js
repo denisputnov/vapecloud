@@ -47,5 +47,72 @@ let sortingTemplates = {
                     <option value="NI" class='select' selected>Не важно</option>
                 </select>
             </div>
-        </div>`
+        </div>`,
+    accessory: `
+        <header class="products-sorting-header">
+            <button class="product-sorting-button sort-by-price point" onclick="sortByPrice(\`increment\`)">Сортировать по цене</button>
+            <button class="product-sorting-button sort-by-alphabet point" onclick="sortByAlphabet(\`a-z\`)">Сортировать А-я</button>
+        </header>
+        <div class='products-sorting-body'>
+            <div class="product-sorting-select sort-by-brand">
+                <label for="brandSelect">Бренд:</label>
+                <select id="brandSelect" name="brand" size="1" onchange="sortByBrand(\`\${this.options[this.selectedIndex].value}\`)">
+                    <option value="NI" class='select' selected>Не важно</option>
+                </select>
+            </div>
+            <div class="product-sorting-select sort-by-sale">
+                <label for="saleSelect">Скидка:</label>
+                <select id="saleSelect" name="sale" size="1" onchange="sortBySale(\`\${this.options[this.selectedIndex].value}\`)">
+                    <option value="NI" class='select' selected>Не важно</option>
+                    <option value="somethink" class='select'>Есть</option>
+                    <option value="0" class='select'>Нет</option>
+                </select>
+            </div>
+        </div>`,
+    cloud: `
+        <header class="products-sorting-header">
+            <button class="product-sorting-button sort-by-price point" onclick="sortByPrice(\`increment\`)">Сортировать по цене</button>
+            <button class="product-sorting-button sort-by-alphabet point" onclick="sortByAlphabet(\`a-z\`)">Сортировать А-я</button>
+        </header>
+        <div class='products-sorting-body'>
+            <div class="product-sorting-select sort-by-sale">
+                <label for="saleSelect">Скидка:</label>
+                <select id="saleSelect" name="sale" size="1" onchange="sortBySale(\`\${this.options[this.selectedIndex].value}\`)">
+                    <option value="NI" class='select' selected>Не важно</option>
+                    <option value="somethink" class='select'>Есть</option>
+                    <option value="0" class='select'>Нет</option>
+                </select>
+            </div>
+        </div>`,
+    sales: `
+        <header class="products-sorting-header">
+            <button class="product-sorting-button sort-by-price point" onclick="sortByPrice(\`increment\`)">Сортировать по цене</button>
+            <button class="product-sorting-button sort-by-alphabet point" onclick="sortByAlphabet(\`a-z\`)">Сортировать А-я</button>
+        </header>
+        <div class='products-sorting-body'>
+            <div class="product-sorting-select sort-by-sale">
+                <label for="saleSelect">Скидка:</label>
+                <select id="saleSelect" name="sale" size="1" onchange="sortBySale(\`\${this.options[this.selectedIndex].value}\`)">
+                    <option value="NI" class='select' selected>Не важно</option>
+                    <option value="somethink" class='select'>Есть</option>
+                    <option value="0" class='select'>Нет</option>
+                </select>
+            </div>
+        </div>`,
+    other: `
+        <header class="products-sorting-header">
+            <button class="product-sorting-button sort-by-price point" onclick="sortByPrice(\`increment\`)">Сортировать по цене</button>
+            <button class="product-sorting-button sort-by-alphabet point" onclick="sortByAlphabet(\`a-z\`)">Сортировать А-я</button>
+        </header>
+        <div class='products-sorting-body'>
+            <div class="product-sorting-select sort-by-sale">
+                <label for="saleSelect">Скидка:</label>
+                <select id="saleSelect" name="sale" size="1" onchange="sortBySale(\`\${this.options[this.selectedIndex].value}\`)">
+                    <option value="NI" class='select' selected>Не важно</option>
+                    <option value="somethink" class='select'>Есть</option>
+                    <option value="0" class='select'>Нет</option>
+                </select>
+            </div>
+        </div>
+    `
 }

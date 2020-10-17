@@ -3,7 +3,7 @@ let $productsSortingContent = document.querySelector(
   ".products-sorting-content"
 );
 
-$productsSortingContent.innerHTML = sortingTemplates[mode];
+$productsSortingContent.innerHTML = sortingTemplates[mode] ?? "Кажется, что произошла ошибка с блоком сортировки. Пожалуйста, сообщите о ней и в скором времени мы её исправим. Приносим извинения за представленные неудобства.";
 
 let $products = document.querySelectorAll(".product");
 let $parent = document.querySelector(".products");
@@ -16,8 +16,9 @@ class Product {
     this.mode = product.getAttribute("data-mode");
     this.title = product.getAttribute("data-title");
     this.brand = product.getAttribute("data-brand");
-    this.price = parseFloat(product.getAttribute("data-price"));
-    this.sale = parseFloat(product.getAttribute("data-sale"));
+    this.defPrice = parseFloat(product.getAttribute("data-price"));
+    this.sale = parseFloat(product.getAttribute("data-sale")) < 100 && parseFloat(product.getAttribute("data-sale")) > 0 ? parseFloat(product.getAttribute("data-sale")) : 0;
+    this.price = this.sale ? (this.defPrice - (this.defPrice * this.sale / 100)).toFixed(2) : this.defPrice; 
     this.category = product.getAttribute("data-category");
     this.taste = product.getAttribute("data-taste");
     this.volume = parseFloat(product.getAttribute("data-volume"));
@@ -34,6 +35,7 @@ function parseProducts() {
   $products.forEach(($product) => {
     products.push(new Product($product));
   });
+  render(products)
 }
 
 parseProducts();
@@ -51,16 +53,30 @@ function generateProductHTML(products) {
   tmp = "";
   products.forEach((obj) => {
     if (obj.display) {
-      tmp += `
-      <div class="product" data-mode="${obj.mode}" data-title="${obj.title}" data-brand="${obj.brand}" data-price="${obj.price}" data-sale="${obj.sale}" data-category="${obj.category}" data-taste="${obj.taste}" data-volume="${obj.volume}" data-salt="${obj.salt}" data-vg_to_pg="${obj.vg_to_pg}" data-nicotine="${obj.nicotine}" data-country="${obj.country}">
-        <a href="${obj.link}" class="show_item"></a>
-        <div class="price_block">
-          <h3 class="price">${obj.price}<span class="rub">Р</span></h3>
-        </div>
-        <p class="label">${obj.title}</p>
-        <img src="/static/images/shadow.png" alt="" class="shadow">
-        <img src="${obj.image}" alt="" class="product_image gradient">
-      </div>`;
+      if (obj.sale) {
+        tmp += `
+          <div class="product" data-mode="${obj.mode}" data-title="${obj.title}" data-brand="${obj.brand}" data-price="${obj.price}" data-sale="${obj.sale}" data-category="${obj.category}" data-taste="${obj.taste}" data-volume="${obj.volume}" data-salt="${obj.salt}" data-vg_to_pg="${obj.vg_to_pg}" data-nicotine="${obj.nicotine}" data-country="${obj.country}">
+            <a href="${obj.link}" class="show_item"></a>
+            <div class="price_block">
+              <h3 class="def-price">${obj.defPrice}<span class="rub-red">Р</span></h3>
+              <h3 class="price">${obj.price}<span class="rub">Р</span></h3>
+            </div>
+            <p class="label">${obj.title}</p>
+            <img src="/static/images/shadow.png" alt="" class="shadow">
+            <img src="${obj.image}" alt="" class="product_image gradient">
+          </div>`;
+      } else {
+        tmp += `
+          <div class="product" data-mode="${obj.mode}" data-title="${obj.title}" data-brand="${obj.brand}" data-price="${obj.price}" data-sale="${obj.sale}" data-category="${obj.category}" data-taste="${obj.taste}" data-volume="${obj.volume}" data-salt="${obj.salt}" data-vg_to_pg="${obj.vg_to_pg}" data-nicotine="${obj.nicotine}" data-country="${obj.country}">
+            <a href="${obj.link}" class="show_item"></a>
+            <div class="price_block">
+              <h3 class="price">${obj.price}<span class="rub">Р</span></h3>
+            </div>
+            <p class="label">${obj.title}</p>
+            <img src="/static/images/shadow.png" alt="" class="shadow">
+            <img src="${obj.image}" alt="" class="product_image gradient">
+          </div>`;
+      }
     }
   });
   return tmp;
