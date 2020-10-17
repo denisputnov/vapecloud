@@ -37,6 +37,7 @@ VapeCloud
             <a id="product-href" href="/item/{{item.category}}/{{item.slug}}/" class="disabled"></a>
             <h1 id="product-name" class="name">{{ item.title|upper }}</h1>
             <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4>
+            <p class="disabled sale">{{ item.sale }}</p>
             <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
             <table>
                 <tbody>
@@ -99,4 +100,5 @@ VapeCloud
 <script src="{% static 'scripts/item-counts.js' %}"></script>
 <script src="{% static 'scripts/cart.js' %}"></script>
 <script src="{% static 'scripts/product-slider.js' %}"></script>
+<script src="{% static 'scripts/item-sales.js' %}"></script>
 {% endblock %}

@@ -149,20 +149,20 @@ function setEvents() {
     let cartSum = document.querySelector('.cart-sum-value');
 
     cartProducts.forEach((el) => {
-        let defPrice = parseInt(el.querySelector('.price-number').textContent) / parseInt(el.querySelector('.counter-value').textContent); 
+        let defPrice = parseFloat(el.querySelector('.price-number').textContent).toFixed(2) / parseInt(el.querySelector('.counter-value').textContent); 
         
         let price = el.querySelector('.price-number');
         let count = el.querySelector('.counter-value');
 
         let prodName = el.querySelector('#product-name').textContent;
 
-        cartSum.textContent = parseInt(cartSum.textContent) + defPrice * parseInt(count.textContent);
+        cartSum.textContent = parseFloat(cartSum.textContent) + defPrice * parseInt(count.textContent).toFixed(2);
 
         // actipns for +/- for every prod
         el.querySelector('.increment').addEventListener('click', (e) => {
             count.textContent = parseInt(count.textContent) + 1;
             price.textContent = defPrice * parseInt(count.textContent);
-            cartSum.textContent = parseInt(cartSum.textContent) + defPrice;
+            cartSum.textContent = parseFloat(cartSum.textContent) + defPrice;
             _updateProductQuantity(prodName, '+');
         });
         el.querySelector('.decrement').addEventListener('click', (e) => {
@@ -195,7 +195,7 @@ function _generateCartStat() {
     cartProducts = document.querySelectorAll('.product');
     let cartSum = 0;
     cartProducts.forEach((el) => {
-        let defPrice = parseInt(el.querySelector('.price-number').textContent) / parseInt(el.querySelector('.counter-value').textContent); 
+        let defPrice = parseFloat(el.querySelector('.price-number').textContent).toFixed(2) / parseInt(el.querySelector('.counter-value').textContent); 
        
         count = el.querySelector('.counter-value');
         document.querySelector('.modal-cart-stat').insertAdjacentHTML("beforeEnd",
