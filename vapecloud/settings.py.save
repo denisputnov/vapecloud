@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os, sys
 
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,14 +28,15 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))"""
 SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.vapeshopcloud.com','194.67.93.173','2a00:f940:2:4:2::1c3b']
-CSRF_COOKIE_SECURE = True
+ALLOWED_HOSTS = ['194.67.93.173']
+
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-CSRF_USE_SESSIONS = True
-CSRF_COOKIE_HTTPONLY = True
+SECURE_SSL_REDIRECT = True
+
+True
 # Application definition
 
 INSTALLED_APPS = [
@@ -145,5 +147,5 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

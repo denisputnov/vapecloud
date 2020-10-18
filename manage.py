@@ -4,8 +4,6 @@ import os
 import sys
 import os
 
-import schedule
-
 
 def main():
     # test = os.path.dirname(os.path.abspath(__file__))
