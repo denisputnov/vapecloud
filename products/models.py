@@ -62,10 +62,10 @@ class Liquid(Product):
         verbose_name_plural = 'Жидкости'
 
     taste = models.CharField(max_length=255, default="другие", verbose_name="Вкус")
-    volume = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="Объем")
+    volume = models.PositiveIntegerField(null=True, verbose_name="Объем")
     salt = models.CharField(max_length=255, choices=SALT_CHOICES, null=True, verbose_name="SALT")
     vg_to_pg = models.CharField(max_length=255, null=True, verbose_name="ВГ на ПГ")
-    nicotine = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="Содержание никотина")
+    nicotine = models.PositiveIntegerField(null=True, verbose_name="Содержание никотина")
     country = models.CharField(max_length=255, default="другие", verbose_name="Страна производитель")
 
     def __str__(self):

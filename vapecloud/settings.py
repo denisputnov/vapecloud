@@ -29,7 +29,7 @@ SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.vapeshopcloud.com','194.67.93.173','2a00:f940:2:4:2::1c3b']
+ALLOWED_HOSTS = ['vapeshopcloud.com','194.67.93.173','194-67-93-173.cloudvps.regruhosting.ru','2a00:f940:2:4:2::1c3b']
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
