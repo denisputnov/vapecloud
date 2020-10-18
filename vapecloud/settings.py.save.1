@@ -29,12 +29,11 @@ SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vapeshopcloud.com','194.67.93.173','194-67-93-173.cloudvps.regruhosting.ru','2a00:f940:2:4:2::1c3b']
-CSRF_COOKIE_SECURE = True
+ALLOWED_HOSTS = ['www.vapeshopcloud.com','194.67.93.173', '2a00:f940:2:4:2::1c3b', '194-67-93-173.cloudvps.regruhosting.ru']
+
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-CSRF_USE_SESSIONS = True
-CSRF_COOKIE_HTTPONLY = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
     'search',
     'django_elasticsearch_dsl',
    #'django.contrib.staticfiles',
+   'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 
     'admin_honeypot',
     ]
 
@@ -127,8 +127,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'Europe/Moscow'
-# TIME_ZONE = 'UTC'
+
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

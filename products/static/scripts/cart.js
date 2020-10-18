@@ -32,7 +32,7 @@ function defineCartContent() {
 }
 try {
     defineCartContent();
-    var bot = new Bot('1096828547:AAHD7G8ZMTQ3FsU_4cQj6HQG-rWVMsrzUrg');
+    var bot = new Bot('1263198427:AAGwSkA-K3v_Eg2SizU26KwIR3BTLKJ0ibc');
 } catch(e) {
     if (storage.getItem('cart') === null) storage.setItem('cart', ' ');
     let $infoMessage = document.querySelector('.info-message-wrapper');
@@ -248,7 +248,7 @@ try {
 
         if (required.every(element => element !== '')) {
             let message = constructMessage(params, constructCartText(), document.querySelector('.cart-sum-value').textContent)
-            bot.sendMessage({chat_id: 587125336, text: message});
+            bot.sendMessage({chat_id: 1022672006, text: message});
 
             document.querySelector('.info-message-content').textContent = "Заказ успешно оформлен, спасибо за покупку.";
             $infoMessage.classList.add('visible-message');

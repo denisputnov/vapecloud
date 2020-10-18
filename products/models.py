@@ -42,7 +42,8 @@ class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name="Наименование", unique=True)
     slug = AutoSlugField(max_length=50, unique=True, populate_from='title')
     image = models.ImageField(upload_to='images', verbose_name="Изображение")
-    # image2 = models.ImageField(upload_to='images', verbose_name="Изображение")
+    image2 = models.ImageField(upload_to='images', null=True, verbose_name="Изображение-2")
+    image3 = models.ImageField(upload_to='images', null=True, verbose_name="Изображение-3")
     brand = models.CharField(max_length=255, default='другие', verbose_name="Бренд")
     description = models.TextField(verbose_name="Описание", null=True)
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Цена")
@@ -61,10 +62,10 @@ class Liquid(Product):
         verbose_name_plural = 'Жидкости'
 
     taste = models.CharField(max_length=255, default="другие", verbose_name="Вкус")
-    volume = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="Объем")
+    volume = models.PositiveIntegerField(null=True, verbose_name="Объем")
     salt = models.CharField(max_length=255, choices=SALT_CHOICES, null=True, verbose_name="SALT")
     vg_to_pg = models.CharField(max_length=255, null=True, verbose_name="ВГ на ПГ")
-    nicotine = models.DecimalField(max_digits=9, decimal_places=2, null=True, verbose_name="Содержание никотина")
+    nicotine = models.PositiveIntegerField(null=True, verbose_name="Содержание никотина")
     country = models.CharField(max_length=255, default="другие", verbose_name="Страна производитель")
 
     def __str__(self):
