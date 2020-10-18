@@ -12,7 +12,7 @@ def get_object_or_none(klass, *args, **kwargs):
 
 
 def search_products(request):
-    query = request.GET.get('q')
+    query = request.GET.get('q').lower()
     results = None
     all_products = list()
 
