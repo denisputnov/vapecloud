@@ -30,11 +30,12 @@ SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 DEBUG = True
 
 ALLOWED_HOSTS = ['vapeshopcloud.com','194.67.93.173','194-67-93-173.cloudvps.regruhosting.ru','2a00:f940:2:4:2::1c3b']
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 CSRF_COOKIE_HTTPONLY = True
+SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -102,7 +103,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+#DATABASES = {
+#'default': {
+#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#            'NAME': 'VAPECLOUD',
+#            'USER': 'vapeadmin',
+#            'PASSWORD': '12341234',
+#            'HOST': 'localhost',
+#            'PORT': '5432',
+#       }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -144,6 +154,17 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+/static/admin
+STATICFILES_DIRS = [
+    '/home/django/vapecloud/static/admin/css',
+    '/home/django/vapecloud/static/admin/fonts',
+    '/home/django/vapecloud/static/admin/img',
+    '/home/django/vapecloud/static/admin/js',
 
+]
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
