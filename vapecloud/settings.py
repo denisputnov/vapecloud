@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))"""
 SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['vapeshopcloud.com','194.67.93.173','194-67-93-173.cloudvps.regruhosting.ru','2a00:f940:2:4:2::1c3b']
 CSRF_COOKIE_SECURE = False
@@ -154,17 +154,17 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
-/static/admin
-STATICFILES_DIRS = [
-    '/home/django/vapecloud/static/admin/css',
-    '/home/django/vapecloud/static/admin/fonts',
-    '/home/django/vapecloud/static/admin/img',
-    '/home/django/vapecloud/static/admin/js',
+#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+#STATICFILES_FINDERS = (
+#    'django.contrib.staticfiles.finders.FileSystemFinder',
+#    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#)
 
-]
+#STATICFILES_DIRS = [
+#    '/home/django/vapecloud/static/admin/css',
+#    '/home/django/vapecloud/static/admin/fonts',
+#    '/home/django/vapecloud/static/admin/img',
+#    '/home/django/vapecloud/static/admin/js',
+#]
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
