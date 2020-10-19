@@ -34,7 +34,7 @@ try {
     defineCartContent();
     var bot = new Bot('1263198427:AAGwSkA-K3v_Eg2SizU26KwIR3BTLKJ0ibc');
 } catch(e) {
-    if (storage.getItem('cart') === null) storage.setItem('cart', ' ');
+    if (storage.getItem('cart') === null) storage.setItem('cart', '[]');
     let $infoMessage = document.querySelector('.info-message-wrapper');
     document.querySelector('.add-to-cart').addEventListener('click', () => {
         $infoMessage.classList.add('visible-message');

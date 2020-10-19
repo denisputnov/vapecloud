@@ -1,4 +1,6 @@
-let mode = document.querySelector("#mode").textContent;
+try{
+    var mode = document.querySelector("#mode").textContent;}
+catch(e){}
 let $productsSortingContent = document.querySelector(
   ".products-sorting-content"
 );

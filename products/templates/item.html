@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block title %}
-VapeCloud
+Vapeshop Cloud
 {% endblock %}
 
 {% block body %}
@@ -26,12 +26,12 @@ VapeCloud
                 <div class="swiper-slide card">
                     <img id="product-image" class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image.url }}" alt="">
                 </div>
-                {% if item.image2 %}
+                {% if item.image2 != 'images/no-img.jpg' %}
                 <div class="swiper-slide card">
                     <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image2.url }}" alt="">
                 </div>
                 {% endif %}
-                {% if item.image3 %}
+                {% if item.image3 != 'images/no-img.jpg'%}
                 <div class="swiper-slide card">
                     <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image3.url }}" alt="">
                 </div>
@@ -45,7 +45,7 @@ VapeCloud
             <h1 id="product-name" class="name">{{ item.title|upper }}</h1>
             <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4>
             <p class="disabled sale">{{ item.sale }}</p>
-            <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
+	<p class="description">{{ item.description }}</p>
             <table>
                 <tbody>
                     {% if item.category.name == "cloud" or item.category.name == "zhidkosti" %}
@@ -59,7 +59,11 @@ VapeCloud
                     </tr>
                     <tr>
                         <td>Salt</td>
-                        <td>{{ item.salt|lower }}</td>
+			{%if item.salt|lower == 'yes'%}
+                        <td>Да</td>
+			{% else %}
+			<td>Нет</td>
+			{% endif %}
                     </tr>
                     <tr>
                         <td>VG/PG</td>
@@ -81,8 +85,8 @@ VapeCloud
                     {% endif %}
                 </tbody>
               </table>
-              <p class="description">{{ item.description }}</p>
-            <div class="cart-counter">
+              <p class="price"><span id="product-price">{{ item.price }}</span> руб.</p>
+	      <div class="cart-counter">
                 <div class="counter-wrapper">
                     <button class='increment'><p>+</p></button>
                     <div class='counter'>
