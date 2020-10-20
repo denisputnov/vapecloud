@@ -102,7 +102,9 @@ class Crate(Product):
 TABLE_CHOICES = {
     ("Accessory", "Accessory"),
     ("Liquid", "Liquid"),
-    }
+    ("Cloud", "Cloud"),
+    ("Others", "Others"),
+}
 
 
 class Cloud(Liquid):
