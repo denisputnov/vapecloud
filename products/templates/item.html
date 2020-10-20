@@ -26,12 +26,12 @@ Vapeshop Cloud
                 <div class="swiper-slide card">
                     <img id="product-image" class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image.url }}" alt="">
                 </div>
-                {% if item.image2 != 'images/no-img.jpg' %}
+                {% if item.image2 %}
                 <div class="swiper-slide card">
                     <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image2.url }}" alt="">
                 </div>
                 {% endif %}
-                {% if item.image3 != 'images/no-img.jpg'%}
+                {% if item.image3 %}
                 <div class="swiper-slide card">
                     <img class="swiper-image" src="{{ MEDIA_ROOT }}{{ item.image3.url }}" alt="">
                 </div>
