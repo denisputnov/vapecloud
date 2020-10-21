@@ -46,7 +46,7 @@ class Product(models.Model):
     image3 = models.ImageField(upload_to='images',null=True, blank=True, default=None, verbose_name="Изображение-3")
     brand = models.CharField(max_length=255, default='другие', verbose_name="Бренд")
     description = models.TextField(verbose_name="Описание", null=True)
-    price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Цена")
+    price = models.PositiveIntegerField(verbose_name="Цена")
     sale = models.DecimalField(null=True, max_digits=10, decimal_places=2, verbose_name="Скидка")
     add_time = models.TimeField(default=datetime.now(), verbose_name="Время добавления")
     add_date = models.DateField(default=timezone.now, verbose_name="Дата добавления")

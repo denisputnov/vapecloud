@@ -20,7 +20,7 @@ class Product {
     this.brand = product.getAttribute("data-brand");
     this.defPrice = parseFloat(product.getAttribute("data-price"));
     this.sale = parseFloat(product.getAttribute("data-sale")) < 100 && parseFloat(product.getAttribute("data-sale")) > 0 ? parseFloat(product.getAttribute("data-sale")) : 0;
-    this.price = this.sale ? (this.defPrice - (this.defPrice * this.sale / 100)).toFixed(2) : this.defPrice; 
+    this.price = this.sale ? (this.defPrice - (this.defPrice * this.sale / 100)).toFixed() : this.defPrice; 
     this.category = product.getAttribute("data-category");
     this.taste = product.getAttribute("data-taste");
     this.volume = parseFloat(product.getAttribute("data-volume"));
