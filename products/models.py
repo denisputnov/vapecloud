@@ -128,6 +128,9 @@ class Slider(models.Model):
     add_time = models.TimeField(default=datetime.now(), verbose_name="Время добавления")
     add_date = models.DateField(default=timezone.now, verbose_name="Дата добавления")
 
+    def __str__(self):
+        return '%s' % self.title
+
     class Meta:
         verbose_name = 'Слайдер'
         verbose_name_plural = 'Слайдеры'

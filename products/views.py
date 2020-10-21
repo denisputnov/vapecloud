@@ -102,8 +102,7 @@ class LiquidTemplate(BaseView):
         liquid_products = Liquid.objects.all().order_by('add_date','add_time')
         data_list = generate_data_string(Liquid)
 
-        if liquid_products[0].category.name == 'zhidkosti':
-            category = 'liquids'
+        category = 'liquids'
 
         return render(request, 'categories.html',
                       {'categorized_products': liquid_products, 'data_string': data_list, 'category': category})
@@ -115,8 +114,7 @@ class AccessoryTemplate(BaseView):
         accessory_products = Accessory.objects.all().order_by('add_date','add_time')
         data_list = generate_data_string(Accessory)
 
-        if accessory_products[0].category.name == 'isparitel' or 'kartridzh' or 'mundshtuki' or 'namotki' or 'vata':
-            category = 'accessory'
+        category = 'accessory'
 
         return render(request, 'categories.html',
                       {'categorized_products': accessory_products, 'data_string': data_list, 'category': category})
@@ -127,7 +125,7 @@ class OthersTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         other_products = Others.objects.all().order_by('add_date','add_time')
         data_list = generate_data_string(Others)
-        category = other_products[0].category.name
+        category = 'other'
         return render(request, 'categories.html',
                       {'categorized_products': other_products, 'data_string': data_list, 'category': category})
 
@@ -137,7 +135,6 @@ class CloudTemplate(BaseView):
     def get(self, request, *args, **kwargs):
         cloud_products = Cloud.objects.all().order_by('add_date','add_time')
         data_list = generate_data_string(Cloud)
-        print(cloud_products[0])
         category = 'cloud'
         return render(request, 'categories.html',
                       {'categorized_products': cloud_products, 'data_string': data_list, 'category': category})
