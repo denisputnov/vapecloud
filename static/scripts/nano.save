@@ -1,0 +1,23 @@
+   <div class="price_block">
+          <h3 class="def-price">${prod.defPrice}<span class="rub-red">Р</span></h3>
+          <h3 class="price">${prod.price}<span class="rub">Р</span></h3>
+        </div>
+        <p class="label">${prod.name}</p>
+        <img src="/static/images/shadow.png" alt="" class="shadow">
+        <img src="${prod.img}" alt="" class="product_image gradient">
+      </div>
+    `
+        }
+    )
+    return res
+}
+
+function init() {
+    let newProds = generateProducts(parseProds())
+    clearProds()
+    document.querySelector('.products').innerHTML = newProds
+}
+
+(() => {
+    init()
+})()

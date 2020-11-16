@@ -33,7 +33,7 @@ Vapeshop Cloud
 <div class="products">
     <!-- FOR PRODUCTS -->
     {% for field in products_list %}
-    <div class="product">
+    <div class="product" data-sale="{{field.sale}}">
         <a href="/item/{{field.category}}/{{field.slug}}/" class="show_item"></a>
         <div class="price_block">
             <h3 class="price"> {{field.price}}<span class="rub">Р</span></h3>
@@ -48,4 +48,5 @@ Vapeshop Cloud
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{% static 'scripts/slider.js' %}"></script>
 <script src="{% static 'scripts/sort-menu.js' %}"></script>
+<script src="{% static 'scripts/home-page-sales.js' %}"></script>
 {% endblock %}
