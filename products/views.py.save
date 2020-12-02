@@ -36,6 +36,7 @@ def item_detail(request, field_category, field_slug):
         item = get_object_or_404(Cloud, slug=field_slug)
     else:
         item = get_object_or_404(Accessory, slug=field_slug)
+    description_clean = item.descriptionsudo systemctl restart nginx
     return render(request, 'item.html', {'item': item})
 
 

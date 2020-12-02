@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))"""
 SECRET_KEY = '5n=0z!z!7ikl3pew6-((ln122&f@^$#n%9lyj2v(wg%w$5f^p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['vapeshopcloud.com','194.67.93.173','194-67-93-173.cloudvps.regruhosting.ru','2a00:f940:2:4:2::1c3b']
 CSRF_COOKIE_SECURE = False
