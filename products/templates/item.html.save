@@ -45,7 +45,7 @@ Vapeshop Cloud
             <h1 id="product-name" class="name">{{ item.title|upper }}</h1>
             <h4 id="product-category" class="category">{{ item.category.description|lower }}</h4>
             <p class="disabled sale">{{ item.sale }}</p>
-	<p class="description">{{ item.descriptionun7maopeNah4 }}</p>
+	<p class="description" style="white-space: pre-wrap;">{{ item.description }}</p>
             <table>
                 <tbody>
                     {% if item.category.name == "cloud" or item.category.name == "zhidkosti" %}
@@ -109,7 +109,7 @@ Vapeshop Cloud
 <script src="{% static 'scripts/item-help.js' %}"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{% static 'scripts/item-counts.js' %}"></script>
+
 <script src="{% static 'scripts/cart.js' %}"></script>
 <script src="{% static 'scripts/product-slider.js' %}"></script>
-<script src="{% static 'scripts/item-sales.js' %}"></script>
 {% endblock %}

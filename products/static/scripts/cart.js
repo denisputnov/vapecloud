@@ -180,6 +180,7 @@ function setEvents() {
             cartSum.textContent = parseInt(cartSum.textContent) - defPrice * parseInt(count.textContent);    
             _deleteProductFromCart(prodName);    
             defineCartContent();
+            _cartSumFix();
         });
     });
 
@@ -189,6 +190,11 @@ function setEvents() {
             title.style.fontSize = '20px';
         }
     });
+}
+
+function _cartSumFix() {
+    let cartSum = document.querySelector('.cart-sum-value');
+    cartSum.textContent = parseInt(cartSum.textContent) / 2;
 }
 
 function _generateCartStat() {
